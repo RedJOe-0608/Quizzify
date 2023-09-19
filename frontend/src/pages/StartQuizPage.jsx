@@ -1,32 +1,32 @@
 import {useParams, Link} from 'react-router-dom'
 import {Row, Col, Image, ListGroup,Card, Button} from 'react-bootstrap'
-import { useEffect, useState } from 'react'
+import { useGetSingleQuizQuery } from '../slices/quizzesApiSlice'
+import Loader from '../components/Loader'
+import Message from '../components/Message'
 const StartQuizPage = () => {
     const {id: quizId} = useParams()
-    const [singleQuiz, setSingleQuiz] = useState({})
     // const [value,setValue] = useState('')
     // const quiz = quizzes.find((q) => q._id === quizId)
     // console.log(quiz);
 
-    useEffect(() => {
-      const fetchQuiz = async( ) => {
-        const res = await fetch(`/api/quizzes/${quizId}`)
-        const data = await res.json()
-        setSingleQuiz(data)
-      }
-
-      fetchQuiz()
-    },[quizId])
+  const {data: singleQuiz, isLoading, error} = useGetSingleQuizQuery(quizId)
+  console.log(singleQuiz);
 
     // const handleChange = (e) => {
     //   setValue(e.target.value)
     // }
   return (
     <>
+    {isLoading ? (
+       <Loader />
+    ) : error ? (
+      <Message variant="danger">{error?.data?.message || error?.error}</Message>
+    ) : (
+      <>
       <Link className='btn btn-light my-3' to="/">Go Back</Link>
       <Row>
         <Col md={5}>
-          <Image src={singleQuiz.image} alt={singleQuiz.name} fluid/>
+          <Image src={singleQuiz?.image} alt={singleQuiz?.name} fluid/>
         </Col>
         <Col md={7}>
           <ListGroup variant='flush'>
@@ -34,13 +34,13 @@ const StartQuizPage = () => {
             <h2>{value}</h2>
           </ListGroup.Item> */}
             <ListGroup.Item>
-              <h3>{singleQuiz.name}</h3>
+              <h3>{singleQuiz?.name}</h3>
             </ListGroup.Item>
             <ListGroup.Item>
-              <p>Total No. Of Levels: {singleQuiz.totalLevels}</p>
+              <p>Total No. Of Levels: {singleQuiz?.totalLevels}</p>
             </ListGroup.Item>
             <ListGroup.Item>
-              <p>Your Progress: {singleQuiz.yourProgress}</p>
+              <p>Your Progress: {singleQuiz?.yourProgress}</p>
             </ListGroup.Item>
             {/* <ListGroup.Item>
               <h2>Favorite Web Language?</h2>
@@ -83,6 +83,8 @@ const StartQuizPage = () => {
         </Col>
       </Row>
     </>
+    )}
+   </> 
   )
 }
 
