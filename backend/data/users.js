@@ -26,6 +26,7 @@ const users = [
                     
                 levelStatus: "not passed",
                 levelScore: 0,
+                isCompleted: false
                 },
                 {
                     levelNo: 2,
@@ -44,6 +45,7 @@ const users = [
                     
                 levelStatus: "not passed",
                 levelScore: 0,
+                isCompleted: false
                 },
             ],
             overallScore: 0,
@@ -69,6 +71,7 @@ const users = [
                     
                 levelStatus: "passed",
                 levelScore: 25,
+                isCompleted: true
                 },
                 {
                     levelNo: 2,
@@ -88,6 +91,7 @@ const users = [
                     
                 levelStatus: "not passed",
                 levelScore: 0,
+                isCompleted: false
                 },
             ],
             overallScore: 25,
@@ -113,6 +117,7 @@ const users = [
                     
                 levelStatus: "passed",
                 levelScore: 20,
+                isCompleted: true
                 },
                 {
                     levelNo: 2,
@@ -132,6 +137,7 @@ const users = [
                     
                 levelStatus: "not passed",
                 levelScore: 0,
+                isCompleted: false
                 },
                 {
                     levelNo: 3,
@@ -151,6 +157,7 @@ const users = [
                     
                 levelStatus: "not passed",
                 levelScore: 0,
+                isCompleted: false
                 },
             ],
             overallScore: 20,
@@ -182,6 +189,7 @@ const users = [
                     
                 levelStatus: "not passed",
                 levelScore: 0,
+                isCompleted: false
                 },
                 {
                     levelNo: 2,
@@ -201,6 +209,7 @@ const users = [
                     
                 levelStatus: "not passed",
                 levelScore: 0,
+                isCompleted: false
                 },
             ],
             overallScore: 0,
@@ -226,6 +235,7 @@ const users = [
                     
                 levelStatus: "passed",
                 levelScore: 25,
+                isCompleted: true
                 },
                 {
                     levelNo: 2,
@@ -245,6 +255,7 @@ const users = [
                     
                 levelStatus: "not passed",
                 levelScore: 0,
+                isCompleted: false
                 },
             ],
             overallScore: 25,
@@ -269,7 +280,8 @@ const users = [
                     ],
                     
                 levelStatus: "passed",
-                levelScore: 20,
+                levelScore: 20,  
+                isCompleted: true
                 },
                 {
                     levelNo: 2,
@@ -289,6 +301,7 @@ const users = [
                     
                 levelStatus: "not passed",
                 levelScore: 0,
+                isCompleted: false
                 },
                 {
                     levelNo: 3,
@@ -308,6 +321,7 @@ const users = [
                     
                 levelStatus: "not passed",
                 levelScore: 0,
+                isCompleted: false
                 },
             ],
             overallScore: 20,

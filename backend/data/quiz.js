@@ -18,22 +18,22 @@ const quiz = [
                                 questionNumber: 1,
                                 question: "On What engine does Js run?",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                   { "a": "Chrome",},
+                                   { "b": "Safari",},
+                                   { "c": "Firefox",},
+                                   { "d": "v8",},
                                 ],
-                                correctAnswer: 'd',
+                                correctAnswer: "d",
                                 score: 5
                             },
                             {
                                 questionNumber: 2,
                                 question: "What kind of database is MONGODB?",
                                 options: [
-                                   { a: "SQL",},
-                                   { b: "NO SQL",},
-                                   { c: "MY SQL",},
-                                   { d: "None of the above",},
+                                   { "a": "SQL",},
+                                   { "b": "NO SQL",},
+                                   { "c": "MY SQL",},
+                                   { "d": "None of the above",},
                                 ],
                                 correctAnswer: 'b',
                                 score: 5
@@ -42,10 +42,10 @@ const quiz = [
                                 questionNumber: 3,
                                 question: "On What engine does Js run?",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                   { "a": "Chrome",},
+                                   { "b": "Safari",},
+                                   { "c": "Firefox",},
+                                   { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -58,12 +58,12 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "On What engine does Js run?",
+                                question: "Level 1 Exercise 2 Q1",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                    { "a": "Chrome",},
+                                   { "b": "Safari",},
+                                   { "c": "Firefox",},
+                                   { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -72,10 +72,10 @@ const quiz = [
                                 questionNumber: 2,
                                 question: "What kind of database is MONGODB?",
                                 options: [
-                                   { a: "SQL",},
-                                   { b: "NO SQL",},
-                                   { c: "MY SQL",},
-                                   { d: "None of the above",},
+                                    { "a": "SQL",},
+                                   { "b": "NO SQL",},
+                                   { "c": "MY SQL",},
+                                   { "d": "None of the above",},
                                 ],
                                 correctAnswer: 'b',
                                 score: 5
@@ -84,10 +84,10 @@ const quiz = [
                                 questionNumber: 3,
                                 question: "On What engine does Js run?",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                    { "a": "Chrome",},
+                                   { "b": "Safari",},
+                                   { "c": "Firefox",},
+                                   { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -95,7 +95,7 @@ const quiz = [
                         ],
                         exercisePassScore: 10
                     },
-                ]
+                ],
             },
             {
                 levelNumber: 2,
@@ -105,12 +105,12 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "On What engine does Js run?",
+                                question: "Level 2 Exercise 1 Q1",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                    { "a": "Chrome",},
+                                   { "b": "Safari",},
+                                   { "c": "Firefox",},
+                                   { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -119,10 +119,10 @@ const quiz = [
                                 questionNumber: 2,
                                 question: "What kind of database is MONGODB?",
                                 options: [
-                                   { a: "SQL",},
-                                   { b: "NO SQL",},
-                                   { c: "MY SQL",},
-                                   { d: "None of the above",},
+                                    { "a": "SQL",},
+                                    { "b": "NO SQL",},
+                                    { "c": "MY SQL",},
+                                    { "d": "None of the above",},
                                 ],
                                 correctAnswer: 'b',
                                 score: 5
@@ -131,10 +131,10 @@ const quiz = [
                                 questionNumber: 3,
                                 question: "On What engine does Js run?",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                    { "a": "Chrome",},
+                                    { "b": "Safari",},
+                                    { "c": "Firefox",},
+                                    { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -147,12 +147,12 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "On What engine does Js run?",
+                                question: "Level 2 Exercise 2 Q1",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                    { "a": "Chrome",},
+                                    { "b": "Safari",},
+                                    { "c": "Firefox",},
+                                    { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -161,10 +161,10 @@ const quiz = [
                                 questionNumber: 2,
                                 question: "What kind of database is MONGODB?",
                                 options: [
-                                   { a: "SQL",},
-                                   { b: "NO SQL",},
-                                   { c: "MY SQL",},
-                                   { d: "None of the above",},
+                                    { "a": "SQL",},
+                                    { "b": "NO SQL",},
+                                    { "c": "MY SQL",},
+                                    { "d": "None of the above",},
                                 ],
                                 correctAnswer: 'b',
                                 score: 5
@@ -173,10 +173,10 @@ const quiz = [
                                 questionNumber: 3,
                                 question: "On What engine does Js run?",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                    { "a": "Chrome",},
+                                    { "b": "Safari",},
+                                    { "c": "Firefox",},
+                                    { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -205,12 +205,12 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "On What engine does Js run?",
+                                question: "Level 1 Exercise 1 Q1",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                    { "a": "Chrome",},
+                                    { "b": "Safari",},
+                                    { "c": "Firefox",},
+                                    { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -219,10 +219,10 @@ const quiz = [
                                 questionNumber: 2,
                                 question: "What kind of database is MONGODB?",
                                 options: [
-                                   { a: "SQL",},
-                                   { b: "NO SQL",},
-                                   { c: "MY SQL",},
-                                   { d: "None of the above",},
+                                    { "a": "SQL",},
+                                   { "b": "NO SQL",},
+                                   { "c": "MY SQL",},
+                                   { "d": "None of the above",},
                                 ],
                                 correctAnswer: 'b',
                                 score: 5
@@ -231,10 +231,10 @@ const quiz = [
                                 questionNumber: 3,
                                 question: "On What engine does Js run?",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                    { "a": "Chrome",},
+                                   { "b": "Safari",},
+                                   { "c": "Firefox",},
+                                   { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -247,12 +247,12 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "On What engine does Js run?",
+                                question: "Level 1 Exercise 2 Q1",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                    { "a": "Chrome",},
+                                   { "b": "Safari",},
+                                   { "c": "Firefox",},
+                                   { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -261,10 +261,10 @@ const quiz = [
                                 questionNumber: 2,
                                 question: "What kind of database is MONGODB?",
                                 options: [
-                                   { a: "SQL",},
-                                   { b: "NO SQL",},
-                                   { c: "MY SQL",},
-                                   { d: "None of the above",},
+                                    { "a": "SQL",},
+                                   { "b": "NO SQL",},
+                                   { "c": "MY SQL",},
+                                   { "d": "None of the above",},
                                 ],
                                 correctAnswer: 'b',
                                 score: 5
@@ -273,10 +273,10 @@ const quiz = [
                                 questionNumber: 3,
                                 question: "On What engine does Js run?",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                    { "a": "Chrome",},
+                                   { "b": "Safari",},
+                                   { "c": "Firefox",},
+                                   { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -294,12 +294,12 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "On What engine does Js run?",
+                                question: "Level 2 Exercise 1 Q1",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                    { "a": "Chrome",},
+                                    { "b": "Safari",},
+                                    { "c": "Firefox",},
+                                    { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -308,10 +308,10 @@ const quiz = [
                                 questionNumber: 2,
                                 question: "What kind of database is MONGODB?",
                                 options: [
-                                   { a: "SQL",},
-                                   { b: "NO SQL",},
-                                   { c: "MY SQL",},
-                                   { d: "None of the above",},
+                                    { "a": "SQL",},
+                                    { "b": "NO SQL",},
+                                    { "c": "MY SQL",},
+                                    { "d": "None of the above",},
                                 ],
                                 correctAnswer: 'b',
                                 score: 5
@@ -320,10 +320,10 @@ const quiz = [
                                 questionNumber: 3,
                                 question: "On What engine does Js run?",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                    { "a": "Chrome",},
+                                   { "b": "Safari",},
+                                   { "c": "Firefox",},
+                                   { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -336,12 +336,12 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "On What engine does Js run?",
+                                question: "Level 2 Exercise 2 Q1",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                    { "a": "Chrome",},
+                                    { "b": "Safari",},
+                                    { "c": "Firefox",},
+                                    { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -350,10 +350,10 @@ const quiz = [
                                 questionNumber: 2,
                                 question: "What kind of database is MONGODB?",
                                 options: [
-                                   { a: "SQL",},
-                                   { b: "NO SQL",},
-                                   { c: "MY SQL",},
-                                   { d: "None of the above",},
+                                    { "a": "SQL",},
+                                    { "b": "NO SQL",},
+                                    { "c": "MY SQL",},
+                                    { "d": "None of the above",},
                                 ],
                                 correctAnswer: 'b',
                                 score: 5
@@ -362,10 +362,10 @@ const quiz = [
                                 questionNumber: 3,
                                 question: "On What engine does Js run?",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                    { "a": "Chrome",},
+                                    { "b": "Safari",},
+                                    { "c": "Firefox",},
+                                    { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -393,12 +393,12 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "On What engine does Js run?",
+                                question: "Level 1 Exercise 1 Q1",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                    { "a": "Chrome",},
+                                   { "b": "Safari",},
+                                   { "c": "Firefox",},
+                                   { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -407,10 +407,10 @@ const quiz = [
                                 questionNumber: 2,
                                 question: "What kind of database is MONGODB?",
                                 options: [
-                                   { a: "SQL",},
-                                   { b: "NO SQL",},
-                                   { c: "MY SQL",},
-                                   { d: "None of the above",},
+                                    { "a": "SQL",},
+                                    { "b": "NO SQL",},
+                                    { "c": "MY SQL",},
+                                    { "d": "None of the above",},
                                 ],
                                 correctAnswer: 'b',
                                 score: 5
@@ -419,10 +419,10 @@ const quiz = [
                                 questionNumber: 3,
                                 question: "On What engine does Js run?",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                    { "a": "Chrome",},
+                                    { "b": "Safari",},
+                                    { "c": "Firefox",},
+                                    { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -435,12 +435,12 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "On What engine does Js run?",
+                                question: "Level 1 Exercise 2 Q1",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                    { "a": "Chrome",},
+                                   { "b": "Safari",},
+                                   { "c": "Firefox",},
+                                   { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -449,10 +449,10 @@ const quiz = [
                                 questionNumber: 2,
                                 question: "What kind of database is MONGODB?",
                                 options: [
-                                   { a: "SQL",},
-                                   { b: "NO SQL",},
-                                   { c: "MY SQL",},
-                                   { d: "None of the above",},
+                                    { "a": "SQL",},
+                                    { "b": "NO SQL",},
+                                    { "c": "MY SQL",},
+                                    { "d": "None of the above",},
                                 ],
                                 correctAnswer: 'b',
                                 score: 5
@@ -461,10 +461,52 @@ const quiz = [
                                 questionNumber: 3,
                                 question: "On What engine does Js run?",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                    { "a": "Chrome",},
+                                   { "b": "Safari",},
+                                   { "c": "Firefox",},
+                                   { "d": "v8",},
+                                ],
+                                correctAnswer: 'd',
+                                score: 5
+                            },
+                        ],
+                        exercisePassScore: 10
+                    },
+                    {
+                        exerciseNumber: 3,
+                        questions: [
+                            {
+                                questionNumber: 1,
+                                question: "Level 1 Exercise 3 Q1",
+                                options: [
+                                    { "a": "Chrome",},
+                                    { "b": "Safari",},
+                                    { "c": "Firefox",},
+                                    { "d": "v8",},
+                                ],
+                                correctAnswer: 'd',
+                                score: 5
+                            },
+                            {
+                                questionNumber: 2,
+                                question: "What kind of database is MONGODB?",
+                                options: [
+                                    { "a": "SQL",},
+                                    { "b": "NO SQL",},
+                                    { "c": "MY SQL",},
+                                    { "d": "None of the above",},
+                                ],
+                                correctAnswer: 'b',
+                                score: 5
+                            },
+                            {
+                                questionNumber: 3,
+                                question: "On What engine does Js run?",
+                                options: [
+                                    { "a": "Chrome",},
+                                   { "b": "Safari",},
+                                   { "c": "Firefox",},
+                                   { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -482,12 +524,12 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "On What engine does Js run?",
+                                question: "Level 2 Exercise 1 Q1",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                    { "a": "Chrome",},
+                                   { "b": "Safari",},
+                                   { "c": "Firefox",},
+                                   { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -496,10 +538,10 @@ const quiz = [
                                 questionNumber: 2,
                                 question: "What kind of database is MONGODB?",
                                 options: [
-                                   { a: "SQL",},
-                                   { b: "NO SQL",},
-                                   { c: "MY SQL",},
-                                   { d: "None of the above",},
+                                    { "a": "SQL",},
+                                    { "b": "NO SQL",},
+                                    { "c": "MY SQL",},
+                                    { "d": "None of the above",},
                                 ],
                                 correctAnswer: 'b',
                                 score: 5
@@ -508,10 +550,10 @@ const quiz = [
                                 questionNumber: 3,
                                 question: "On What engine does Js run?",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                    { "a": "Chrome",},
+                                   { "b": "Safari",},
+                                   { "c": "Firefox",},
+                                   { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -524,12 +566,12 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "On What engine does Js run?",
+                                question: "Level 2 Exercise 2 Q1",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                    { "a": "Chrome",},
+                                    { "b": "Safari",},
+                                    { "c": "Firefox",},
+                                    { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -538,10 +580,10 @@ const quiz = [
                                 questionNumber: 2,
                                 question: "What kind of database is MONGODB?",
                                 options: [
-                                   { a: "SQL",},
-                                   { b: "NO SQL",},
-                                   { c: "MY SQL",},
-                                   { d: "None of the above",},
+                                    { "a": "SQL",},
+                                    { "b": "NO SQL",},
+                                    { "c": "MY SQL",},
+                                    { "d": "None of the above",},
                                 ],
                                 correctAnswer: 'b',
                                 score: 5
@@ -550,10 +592,10 @@ const quiz = [
                                 questionNumber: 3,
                                 question: "On What engine does Js run?",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                    { "a": "Chrome",},
+                                    { "b": "Safari",},
+                                    { "c": "Firefox",},
+                                    { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -571,12 +613,12 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "On What engine does Js run?",
+                                question: "Level 3 Exercise 1 Q1",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                    { "a": "Chrome",},
+                                   { "b": "Safari",},
+                                   { "c": "Firefox",},
+                                   { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -585,10 +627,10 @@ const quiz = [
                                 questionNumber: 2,
                                 question: "What kind of database is MONGODB?",
                                 options: [
-                                   { a: "SQL",},
-                                   { b: "NO SQL",},
-                                   { c: "MY SQL",},
-                                   { d: "None of the above",},
+                                    { "a": "Chrome",},
+                                   { "b": "Safari",},
+                                   { "c": "Firefox",},
+                                   { "d": "v8",},
                                 ],
                                 correctAnswer: 'b',
                                 score: 5
@@ -597,10 +639,10 @@ const quiz = [
                                 questionNumber: 3,
                                 question: "On What engine does Js run?",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                    { "a": "Chrome",},
+                                    { "b": "Safari",},
+                                    { "c": "Firefox",},
+                                    { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -613,12 +655,12 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "On What engine does Js run?",
+                                question: "Level 3 Exercise 2 Q1",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                    { "a": "Chrome",},
+                                    { "b": "Safari",},
+                                    { "c": "Firefox",},
+                                    { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -627,10 +669,10 @@ const quiz = [
                                 questionNumber: 2,
                                 question: "What kind of database is MONGODB?",
                                 options: [
-                                   { a: "SQL",},
-                                   { b: "NO SQL",},
-                                   { c: "MY SQL",},
-                                   { d: "None of the above",},
+                                    { "a": "SQL",},
+                                    { "b": "NO SQL",},
+                                    { "c": "MY SQL",},
+                                    { "d": "None of the above",},
                                 ],
                                 correctAnswer: 'b',
                                 score: 5
@@ -639,10 +681,10 @@ const quiz = [
                                 questionNumber: 3,
                                 question: "On What engine does Js run?",
                                 options: [
-                                   { a: "Chrome",},
-                                   { b: "Safari",},
-                                   { c: "Firefox",},
-                                   { d: "v8",},
+                                    { "a": "Chrome",},
+                                   { "b": "Safari",},
+                                   { "c": "Firefox",},
+                                   { "d": "v8",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5

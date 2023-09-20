@@ -3,10 +3,10 @@ import mongoose from "mongoose";
 //id, name, image, description, totalLevels, yourProgress, level
 
 const optionsSchema = new mongoose.Schema({
-    a : {type: String},
-    b : {type: String},
-    c : {type: String},
-    d : {type: String},
+    "a" : {type: String},
+    "b" : {type: String},
+    "c" : {type: String},
+    "d" : {type: String},
 })
 
 const questionsSchema = new mongoose.Schema({
@@ -39,7 +39,7 @@ const levelSchema = new mongoose.Schema({
         type: Number,
         default: 1,
     },
-    exercises: [exercisesSchema],
+    exercises: [exercisesSchema]
 })
 
 

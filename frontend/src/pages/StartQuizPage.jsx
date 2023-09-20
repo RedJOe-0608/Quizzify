@@ -1,16 +1,34 @@
-import {useParams, Link} from 'react-router-dom'
+import {useParams, Link, useNavigate} from 'react-router-dom'
 import {Row, Col, Image, ListGroup,Card, Button} from 'react-bootstrap'
 import { useGetSingleQuizQuery } from '../slices/quizzesApiSlice'
+import { useSelector, useDispatch } from 'react-redux'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 const StartQuizPage = () => {
+
     const {id: quizId} = useParams()
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const {data: singleQuiz, isLoading, error} = useGetSingleQuizQuery(quizId)
+    console.log(singleQuiz);
+
+
+    const {levelNo, exerciseNo} = useSelector((state) => {
+      if(singleQuiz?.name.includes("React")){
+        return state.react
+      }
+      else if(singleQuiz?.name.includes("JavaScript")){
+        return state.javascript
+      } else{
+        return state.python     
+      }
+     
+    })
     // const [value,setValue] = useState('')
     // const quiz = quizzes.find((q) => q._id === quizId)
     // console.log(quiz);
 
-  const {data: singleQuiz, isLoading, error} = useGetSingleQuizQuery(quizId)
-  console.log(singleQuiz);
+
 
     // const handleChange = (e) => {
     //   setValue(e.target.value)
@@ -69,12 +87,14 @@ const StartQuizPage = () => {
               className='btn-block'
               style={{marginRight: '1.5rem'}}
                 type='button'
+                onClick={() => navigate(`/quiz/${quizId}/level/${levelNo}/exercise/${exerciseNo}`)}
             >
               Resume Quiz
             </Button>
             <Button
               className='btn-block'
                 type='button'
+                onClick={() => navigate(`/quiz/${quizId}/level/${1}/exercise/${1}`)}
             >
               Start Over
             </Button>
