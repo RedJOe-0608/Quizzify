@@ -3,12 +3,15 @@ import Questions from './Questions'
 import { Button } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 import ModalDisplay from './ModalDisplay';
+import { useGetSingleQuizQuery } from '../slices/quizzesApiSlice';
+import { useSelector } from 'react-redux';
 
 const Exercise = ({exercise, exercisesLength, levelsLength}) => {
   const navigate = useNavigate()
-    const {levelNo, exerciseNo, id} = useParams() 
-
-    console.log(levelsLength, exercisesLength);
+    const {levelNo, exerciseNo, id:quizId} = useParams()
+    
+    
+    // console.log(levelsLength, exercisesLength);
     let eNo = Number(exerciseNo)
     let lNo = Number(levelNo)
 
@@ -40,10 +43,10 @@ const Exercise = ({exercise, exercisesLength, levelsLength}) => {
       levelsLength={levelsLength}
       exercisesLength={exercisesLength}
       eNo={eNo}
-      id={id}
-      navigate={navigate}
+      id={quizId}
       exerciseScore={exerciseScore}
       setExerciseScore={setExerciseScore}
+      exerciseNo={exercise.exerciseNumber}
       exercisePassScore={exercise.exercisePassScore}
     />}
     <form onSubmit={handleSubmit}>
@@ -52,7 +55,9 @@ const Exercise = ({exercise, exercisesLength, levelsLength}) => {
     })}
      <Button 
      type='submit'
-     className='btn btn-block'>Submit Exercise</Button>
+     className='btn btn-block'>
+      {exerciseNo == exercisesLength ? 'Submit And Finish Level' : ' Submit Exercise'}
+     </Button>
     </form>
     </>
   )

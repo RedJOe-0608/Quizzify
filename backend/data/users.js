@@ -13,12 +13,12 @@ const users = [
                     levelNo: 1,
                     ex: [
                         {
-                            exerciseNumber: 1,
+                            exerciseNo: 1,
                             exerciseScore: 0,
                             exerciseStatus: "not passed"
                         },
                         {
-                            exerciseNumber: 2,
+                            exerciseNo: 2,
                             exerciseScore: 0,
                             exerciseStatus: "not passed"
                         },
@@ -32,12 +32,12 @@ const users = [
                     levelNo: 2,
                     ex: [
                         {
-                            exerciseNumber: 1,
+                            exerciseNo: 1,
                             exerciseScore: 0,
                             exerciseStatus: "not passed"
                         },
                         {
-                            exerciseNumber: 2,
+                            exerciseNo: 2,
                             exerciseScore: 0,
                             exerciseStatus: "not passed"
                         },
@@ -58,12 +58,12 @@ const users = [
                     ex:
                     [
                         {
-                            exerciseNumber: 1,
+                            exerciseNo: 1,
                             exerciseScore: 15,
                             exerciseStatus: "passed"
                         },
                         {
-                            exerciseNumber: 2,
+                            exerciseNo: 2,
                             exerciseScore: 10,
                             exerciseStatus: "passed"
                         },
@@ -78,12 +78,12 @@ const users = [
                     ex:
                     [
                         {
-                            exerciseNumber: 1,
+                            exerciseNo: 1,
                             exerciseScore: 0,
                             exerciseStatus: "not passed"
                         },
                         {
-                            exerciseNumber: 2,
+                            exerciseNo: 2,
                             exerciseScore: 0,
                             exerciseStatus: "not passed"
                         },
@@ -104,12 +104,12 @@ const users = [
                     ex:
                     [
                         {
-                            exerciseNumber: 1,
+                            exerciseNo: 1,
                             exerciseScore: 10,
                             exerciseStatus: "passed"
                         },
                         {
-                            exerciseNumber: 2,
+                            exerciseNo: 2,
                             exerciseScore: 10,
                             exerciseStatus: "passed"
                         },
@@ -124,12 +124,12 @@ const users = [
                     ex:
                     [
                         {
-                            exerciseNumber: 1,
+                            exerciseNo: 1,
                             exerciseScore: 0,
                             exerciseStatus: "not passed"
                         },
                         {
-                            exerciseNumber: 2,
+                            exerciseNo: 2,
                             exerciseScore: 0,
                             exerciseStatus: "not passed"
                         },
@@ -144,12 +144,12 @@ const users = [
                     ex:
                     [
                         {
-                            exerciseNumber: 1,
+                            exerciseNo: 1,
                             exerciseScore: 0,
                             exerciseStatus: "not passed"
                         },
                         {
-                            exerciseNumber: 2,
+                            exerciseNo: 2,
                             exerciseScore: 0,
                             exerciseStatus: "not passed"
                         },
@@ -176,12 +176,12 @@ const users = [
                     ex:
                     [
                         {
-                            exerciseNumber: 1,
+                            exerciseNo: 1,
                             exerciseScore: 0,
                             exerciseStatus: "not passed"
                         },
                         {
-                            exerciseNumber: 2,
+                            exerciseNo: 2,
                             exerciseScore: 0,
                             exerciseStatus: "not passed"
                         },
@@ -196,12 +196,12 @@ const users = [
                     ex:
                     [
                         {
-                            exerciseNumber: 1,
+                            exerciseNo: 1,
                             exerciseScore: 0,
                             exerciseStatus: "not passed"
                         },
                         {
-                            exerciseNumber: 2,
+                            exerciseNo: 2,
                             exerciseScore: 0,
                             exerciseStatus: "not passed"
                         },
@@ -222,12 +222,12 @@ const users = [
                     ex:
                     [
                         {
-                            exerciseNumber: 1,
+                            exerciseNo: 1,
                             exerciseScore: 15,
                             exerciseStatus: "passed"
                         },
                         {
-                            exerciseNumber: 2,
+                            exerciseNo: 2,
                             exerciseScore: 10,
                             exerciseStatus: "passed"
                         },
@@ -242,12 +242,12 @@ const users = [
                     ex:
                     [
                         {
-                            exerciseNumber: 1,
+                            exerciseNo: 1,
                             exerciseScore: 0,
                             exerciseStatus: "not passed"
                         },
                         {
-                            exerciseNumber: 2,
+                            exerciseNo: 2,
                             exerciseScore: 0,
                             exerciseStatus: "not passed"
                         },
@@ -268,12 +268,12 @@ const users = [
                     ex:
                     [
                         {
-                            exerciseNumber: 1,
+                            exerciseNo: 1,
                             exerciseScore: 10,
                             exerciseStatus: "passed"
                         },
                         {
-                            exerciseNumber: 2,
+                            exerciseNo: 2,
                             exerciseScore: 10,
                             exerciseStatus: "passed"
                         },
@@ -288,12 +288,12 @@ const users = [
                     ex:
                     [
                         {
-                            exerciseNumber: 1,
+                            exerciseNo: 1,
                             exerciseScore: 0,
                             exerciseStatus: "not passed"
                         },
                         {
-                            exerciseNumber: 2,
+                            exerciseNo: 2,
                             exerciseScore: 0,
                             exerciseStatus: "not passed"
                         },
@@ -308,12 +308,12 @@ const users = [
                     ex:
                     [
                         {
-                            exerciseNumber: 1,
+                            exerciseNo: 1,
                             exerciseScore: 0,
                             exerciseStatus: "not passed"
                         },
                         {
-                            exerciseNumber: 2,
+                            exerciseNo: 2,
                             exerciseScore: 0,
                             exerciseStatus: "not passed"
                         },

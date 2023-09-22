@@ -1,14 +1,121 @@
 import {Modal, Button} from 'react-bootstrap'
+import { useGetSingleQuizQuery } from '../slices/quizzesApiSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
+import {resumeQuizPython, resetQuizPython,addExercisePython,addLevelPython, updateExercisePython} from '../slices/pythonSlice'
+import {resumeQuizJs, resetQuizJs, addExerciseJs, addLevelJs, updateExerciseJs} from '../slices/javascriptSlice'
+import {resumeQuizReact, resetQuizReact, addExerciseReact, addLevelReact, updateExerciseReact} from '../slices/reactSlice'
+import { updateUserJavascriptExercise, updateUserReactExercise, updateUserPythonExercise } from '../slices/authSlice';
 
-const ModalDisplay = ({show, setShow, navigate, lNo, eNo, id, levelsLength, exercisesLength, exerciseScore, setExerciseScore, exercisePassScore}) => {
+const ModalDisplay = ({show, setShow, lNo, eNo, id, levelsLength, exercisesLength, exerciseScore, setExerciseScore, exercisePassScore}) => {
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+    // const { id:quizId, levelNo,exerciseNo} = useParams()
+  const {data: singleQuiz, isLoading, error} = useGetSingleQuizQuery(id)
+    console.log(singleQuiz);
+    
+    const {userInfo} = useSelector((state) => state.auth)
+
+    const quizName = singleQuiz?.name
+
+    let state = useSelector((state) => {
+      if(quizName?.includes("React")){
+        return state.react
+      }
+      else if(quizName?.includes("JavaScript")){
+        return state.javascript
+      } else{
+        return state.python     
+      }
+    })
+
+    console.log(state);
+    const {level} = state
+    let {levelScore,levelStatus,levelNo, ex} = level[level.length -1];
+    let {exerciseStatus,exerciseScore: exScore} = ex[ex.length - 1];
+    console.log("level number is",levelNo);
 
   const handleTryAgain = () => {
     setExerciseScore(0)
     setShow(false);
+    if(quizName?.includes("React")){
+      dispatch(resetQuizReact(userInfo))
+    }
+    else if(quizName?.includes("JavaScript")){
+      dispatch(resetQuizJs(userInfo))
+    } else if(quizName?.includes("Python")){
+      dispatch(resetQuizPython(userInfo))   
+    }
+   
+    navigate(`/quiz/${id}/level/${1}/exercise/${1}`)
   }
 
   const handleNext = () => {
-    setShow(false);
+
+    if(quizName?.includes("React")){
+      dispatch(updateExerciseReact({exerciseScore,exercisePassScore,levelsLength,exercisesLength}))
+    }
+    else if(quizName?.includes("JavaScript")){
+      dispatch(updateExerciseJs({exerciseScore,exercisePassScore}))
+     
+    } else{
+      dispatch(updateExercisePython({exerciseScore,exercisePassScore}))     
+    }
+    
+
+    let newExercise = []
+    newExercise.push({
+        exerciseNo: ((ex.length+1) % exercisesLength) == 0 ? exercisesLength : (ex.length+1) % exercisesLength,
+        exerciseScore: 0,
+        exerciseStatus: "not passed"
+      })
+
+      let newlevel = []
+      newlevel.push({
+        levelNo: levelNo+1,
+        levelStatus: "not passed",
+        levelScore: 0,
+        isCompleted: false,
+        ex: newExercise
+      })
+
+
+      
+
+    //this is for adding the next exercise
+    if(levelsLength>=1 && eNo < exercisesLength)
+    {
+      if(quizName?.includes("React")){
+        dispatch(addExerciseReact({newExercise}))
+      }
+      else if(quizName?.includes("JavaScript")){
+        dispatch(addExerciseJs({newExercise}))
+      } else{
+        dispatch(addExercisePython({newExercise}))    
+      }
+      //this is for updating the level
+    }else if(levelsLength > 1 && eNo == exercisesLength){
+      if(quizName?.includes("React")){
+        dispatch(addLevelReact(newlevel))
+      }
+      else if(quizName?.includes("JavaScript")){
+        dispatch(addLevelJs(newlevel))
+      } else{
+        dispatch(addLevelPython(newlevel))    
+      }    
+    }
+
+    //updating the user quiz state
+    if(quizName?.includes("React")){
+      dispatch(updateUserReactExercise())
+    }
+    else if(quizName?.includes("JavaScript")){
+      dispatch(updateUserJavascriptExercise())
+    } else{
+      dispatch(updateUserPythonExercise()) 
+    }    
+    
 
     if(levelsLength>=1 && eNo < exercisesLength)
       {
@@ -27,20 +134,46 @@ const ModalDisplay = ({show, setShow, navigate, lNo, eNo, id, levelsLength, exer
         // console.log(`/quiz/${id}/level/${lNo}/exercise/${(eNo)}`);
         navigate(`/quiz/${id}/level/${lNo}/exercise/${eNo}`)
       }
+
+      setShow(false)
+      setExerciseScore(0)
   }
   const handleClose = () => setShow(false);
 
   return (
     <Modal show={show} onHide={handleClose}>
     <Modal.Header closeButton>
-      <Modal.Title>Exercise Summary</Modal.Title>
+      <Modal.Title>
+        {eNo === exercisesLength ? 'Level Summary' : 'Exercise Summary'}
+        </Modal.Title>
     </Modal.Header>
     <Modal.Body>
-      <p>You Have completed the exercise!</p>
-      <p>Your Exercise Score is: {exerciseScore}</p>
-      {(exerciseScore > exercisePassScore) ? (
-        <p>Status: Passed</p>
-      ) : (<p>Status: Failed</p>) }
+      {eNo === exercisesLength ? (
+        <>
+        <p>You Have completed the level!</p>
+        <p>Your Level Score is: {eNo === exercisesLength ? levelScore+=exerciseScore : levelScore}</p>
+        {(levelScore >= exercisePassScore*exercisesLength) ? (
+             <p>Status: Passed</p>
+           ) : (
+           <>
+           <p>Status: Failed</p>
+           <p>Please Try Again To Proceed to the next level!</p>
+           </>
+           ) }
+         
+        </>
+        
+      ) : (
+        <>
+          <p>You Have completed the exercise!</p>
+           <p>Your Exercise Score is: {exerciseScore}</p>
+           {(exerciseScore >= exercisePassScore) ? (
+             <p>Status: Passed</p>
+           ) : (<p>Status: Failed</p>) }
+        </>
+           
+      )}
+     
     </Modal.Body>
     <Modal.Footer>
       <Button variant="secondary" onClick={handleTryAgain}>
@@ -49,9 +182,14 @@ const ModalDisplay = ({show, setShow, navigate, lNo, eNo, id, levelsLength, exer
       <Button variant="secondary" onClick={handleClose}>
         Close
       </Button>
-      <Button variant="success" onClick={handleNext}>
-        Go To The Next Exercise
-      </Button>
+      {eNo === exercisesLength  ? (
+        <Button 
+        onClick={handleNext}
+        variant='success'
+        disabled={levelScore < exercisePassScore*exercisesLength}>Go To The Next Level</Button>
+      ) : ( <Button variant="success" onClick={handleNext}>
+      Go To The Next Exercise</Button>)}
+     
     </Modal.Footer>
   </Modal>
   )

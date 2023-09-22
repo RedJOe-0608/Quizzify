@@ -4,35 +4,69 @@ import { useGetSingleQuizQuery } from '../slices/quizzesApiSlice'
 import { useSelector, useDispatch } from 'react-redux'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
+import {resumeQuizPython, resetQuizPython,addExercisePython,addLevelPython} from '../slices/pythonSlice'
+import {resumeQuizJs, resetQuizJs, addExerciseJs, addLevelJs} from '../slices/javascriptSlice'
+import {resumeQuizReact, resetQuizReact, addExerciseReact, addLevelReact} from '../slices/reactSlice'
+import { useEffect } from 'react'
+
+
+
+// Level 2 will only be added to the redux state when level 1 is completed and so on
+
+
+
 const StartQuizPage = () => {
 
     const {id: quizId} = useParams()
     const navigate = useNavigate()
     const dispatch = useDispatch()
+
     const {data: singleQuiz, isLoading, error} = useGetSingleQuizQuery(quizId)
     console.log(singleQuiz);
+    
+
+    const quizName = singleQuiz?.name
 
 
-    const {levelNo, exerciseNo} = useSelector((state) => {
-      if(singleQuiz?.name.includes("React")){
-        return state.react
+      let state = useSelector((state) => {
+       if(quizName?.includes("React")){
+         return state.react
+       }
+       else if(quizName?.includes("JavaScript")){
+         return state.javascript
+       } else{
+         return state.python     
+       }
+     })
+
+    const {userInfo} = useSelector((state) => state.auth)
+
+
+    //if a user is logged in
+    if(userInfo){
+      if(quizName?.includes("React")){
+        dispatch(resumeQuizReact({userInfo}))
       }
-      else if(singleQuiz?.name.includes("JavaScript")){
-        return state.javascript
-      } else{
-        return state.python     
+      else if(quizName?.includes("JavaScript")){
+        dispatch(resumeQuizJs({userInfo}))
+      } else if(quizName?.includes("Python")){
+        dispatch(resumeQuizPython({userInfo}))    
       }
-     
-    })
-    // const [value,setValue] = useState('')
-    // const quiz = quizzes.find((q) => q._id === quizId)
-    // console.log(quiz);
+      
+      
+    }
 
+    const level = state?.level
+      let levelNo = level[level.length-1]?.levelNo;
+      let ex = level[level.length-1]?.ex;
 
+       let exerciseNo = ex[ex.length - 1]?.exerciseNo;
 
-    // const handleChange = (e) => {
-    //   setValue(e.target.value)
-    // }
+       const resetQuiz = () => {
+       dispatch( resetQuizReact(userInfo))
+        navigate(`/quiz/${quizId}/level/${1}/exercise/${1}`)
+       }
+    
   return (
     <>
     {isLoading ? (
@@ -60,27 +94,6 @@ const StartQuizPage = () => {
             <ListGroup.Item>
               <p>Your Progress: {singleQuiz?.yourProgress}</p>
             </ListGroup.Item>
-            {/* <ListGroup.Item>
-              <h2>Favorite Web Language?</h2>
-              <input type="radio" className='my-4' name='language' value="HTML" id='HTML' 
-              onChange={handleChange} />
-              <label htmlFor="HTML" 
-              style={{marginLeft: '0.5rem'}}
-            
-              >HTML</label>
-            </ListGroup.Item> */}
-            {/* <ListGroup.Item >
-              <input type="radio" className='my-4' name='language' value="javascript" id='javascript' 
-              onChange={handleChange}
-              />
-              <label htmlFor="javascript"  style={{marginLeft: '0.5rem'}}>JavaScript</label>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              <input type="radio" className='my-4' name='language' value="CSS" id='CSS' 
-              onChange={handleChange}
-              />
-              <label htmlFor="CSS"  style={{marginLeft: '0.5rem'}}>CSS</label>
-            </ListGroup.Item> */}
           
             <ListGroup.Item>
             <Button
@@ -94,7 +107,7 @@ const StartQuizPage = () => {
             <Button
               className='btn-block'
                 type='button'
-                onClick={() => navigate(`/quiz/${quizId}/level/${1}/exercise/${1}`)}
+                onClick={resetQuiz}
             >
               Start Over
             </Button>

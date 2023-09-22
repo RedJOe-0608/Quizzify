@@ -3,15 +3,13 @@ import {ListGroup, Button} from 'react-bootstrap'
 const Questions = ({questions, exerciseScore, setExerciseScore}) => {
 
 
-console.log(questions);
+// console.log(questions);
   
 const handleClick = (option) => {
-  console.log(Object.keys(option)[0] === questions.correctAnswer);
+  // console.log(Object.keys(option)[0] === questions.correctAnswer);
   if(Object.keys(option)[0] === questions.correctAnswer)
   {
     setExerciseScore((prevExerciseScore) => prevExerciseScore + questions.score)
-  }else{
-    setExerciseScore(exerciseScore)
   }
     // console.log(`option ${Object.values(option)[0]} clicked!`)
 }

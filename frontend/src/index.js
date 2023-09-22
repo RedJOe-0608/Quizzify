@@ -15,6 +15,8 @@ import StartQuizPage from './pages/StartQuizPage';
 import QuizPage from './pages/QuizPage';
 import { Provider } from 'react-redux';
 import store from './store';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,6 +24,8 @@ const router = createBrowserRouter(
       <Route index path='/' element={<HomePage />} />
       <Route path='/quiz/:id/startquiz' element={<StartQuizPage />} />
       <Route path='/quiz/:id/level/:levelNo/exercise/:exerciseNo' element={<QuizPage />} />
+      <Route path='/login' element={<LoginPage />} />
+      <Route path='/register' element={<RegisterPage />} />
     </Route>
   )
 )

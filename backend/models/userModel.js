@@ -2,16 +2,16 @@ import mongoose from "mongoose";
 import bcrypt from 'bcryptjs'
 
 let exercisesSchema = new mongoose.Schema({
-    exerciseNumber: {type: Number,required: true, default: 1},
-    exerciseScore: {type: Number,required: true, default: 0},
-    exerciseStatus: {type: String,required: true, default: "not passed"},
+    exerciseNo: {type: Number, default: 1},
+    exerciseScore: {type: Number, default: 0},
+    exerciseStatus: {type: String, default: "not passed"},
 })
 
 const levelSchema = new mongoose.Schema({
-    levelNo:{type: Number,required: true,default: 1},
+    levelNo:{type: Number,default: 1},
     ex: {type: [exercisesSchema],default: () => ({})},
-    levelStatus: {type: String,required: true, default: "not passed"},
-    levelScore:{type: Number,required: true,default: 0}, // this is basically the addition of all the exercises scores.
+    levelStatus: {type: String, default: "not passed"},
+    levelScore:{type: Number,default: 0}, // this is basically the addition of all the exercises scores.
     isCompleted: {type: Boolean,required: true, default:false}
 })
 

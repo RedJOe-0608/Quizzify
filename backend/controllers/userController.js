@@ -45,6 +45,7 @@ const registerUser = asyncHandler(async(req,res) => {
     }
 
     //if the user doesn't exist, we create it:
+    //Now we have to pass the email and password and name because they are required feilds as described in the user model.
     const user = await User.create({
         name,
         email,
@@ -86,14 +87,59 @@ const logoutUser = asyncHandler(async(req,res) => {
 // @route GET /api/users/profile
 // @access private
 const getUserProfile = asyncHandler(async(req,res) => {
-    res.send("get user profile")
+    const user = await User.findById(req.user._id)
+
+    if(user){
+        res.status(200).json({
+            _id: user._id,
+            name: user.name,
+            email: user.email,
+            isAdmin: user.isAdmin,
+            javascript: user.javascript,
+            python: user.python,
+            react: user.react
+        });
+    } else{
+        res.status(404)
+        throw new Error("User not found!")
+    }
 })
 
 // @desc update user profile
 // @route PUT /api/users/profile
 // @access private
 const updateUserProfile = asyncHandler(async(req,res) => {
-    res.send("update user profile")
+    const user = await User.findById(req.user._id)
+
+    if(user)
+    {
+        user.name = req.body.name || user.name
+        user.email = req.body.email || user.email
+        user.javascript = req.body.javascript || user.javascript
+        user.react = req.body.react || user.react
+        user.python = req.body.python || user.python
+
+        if(req.body.password)
+        {
+            user.password = req.body.password
+        }
+
+        const updatedUser = await user.save()
+        
+            res.status(200).json({
+                _id: updatedUser._id,
+                name: updatedUser.name,
+                email: updatedUser.email,
+                isAdmin: updatedUser.isAdmin,
+                javascript: updatedUser.javascript,
+                python: updatedUser.python,
+                react: updatedUser.react
+            })   
+    }
+    else{
+        res.status(404)
+        throw new Error("User not found!")
+    }
 })
 
 // @desc Get users
