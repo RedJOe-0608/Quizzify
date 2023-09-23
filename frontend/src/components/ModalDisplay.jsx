@@ -6,6 +6,8 @@ import {resumeQuizPython, resetQuizPython,addExercisePython,addLevelPython, upda
 import {resumeQuizJs, resetQuizJs, addExerciseJs, addLevelJs, updateExerciseJs} from '../slices/javascriptSlice'
 import {resumeQuizReact, resetQuizReact, addExerciseReact, addLevelReact, updateExerciseReact} from '../slices/reactSlice'
 import { updateUserJavascriptExercise, updateUserReactExercise, updateUserPythonExercise } from '../slices/authSlice';
+import { useProfileMutation } from '../slices/usersApiSlice';
+import Loader from '../components/Loader'
 
 const ModalDisplay = ({show, setShow, lNo, eNo, id, levelsLength, exercisesLength, exerciseScore, setExerciseScore, exercisePassScore}) => {
 
@@ -16,6 +18,8 @@ const ModalDisplay = ({show, setShow, lNo, eNo, id, levelsLength, exercisesLengt
     console.log(singleQuiz);
     
     const {userInfo} = useSelector((state) => state.auth)
+
+    const [updateProfile, {isLoading: loadingUpdateProfile}] = useProfileMutation()
 
     const quizName = singleQuiz?.name
 
@@ -36,31 +40,49 @@ const ModalDisplay = ({show, setShow, lNo, eNo, id, levelsLength, exercisesLengt
     let {exerciseStatus,exerciseScore: exScore} = ex[ex.length - 1];
     console.log("level number is",levelNo);
 
-  const handleTryAgain = () => {
-    setExerciseScore(0)
-    setShow(false);
-    if(quizName?.includes("React")){
-      dispatch(resetQuizReact(userInfo))
+  const handleTryAgain =() => {
+
+    try {
+      setExerciseScore(0)
+      setShow(false);
+      if(quizName?.includes("React")){
+        dispatch(resetQuizReact(userInfo))
+        // const res = await updateProfile({_id: userInfo._id,react: state}).unwrap()
+        // console.log(res);
+      }
+      else if(quizName?.includes("JavaScript")){
+        dispatch(resetQuizJs(userInfo))
+        // const res = await updateProfile({_id: userInfo._id,javascript: state}).unwrap()
+        // console.log(res);
+      } else{
+        dispatch(resetQuizPython(userInfo))
+        // const res = await updateProfile({_id: userInfo._id,python: state}).unwrap()
+        // console.log(res);
+      }
+
+     
+    } catch (error) {
+      console.log(error);
     }
-    else if(quizName?.includes("JavaScript")){
-      dispatch(resetQuizJs(userInfo))
-    } else if(quizName?.includes("Python")){
-      dispatch(resetQuizPython(userInfo))   
-    }
+ 
+
+
    
     navigate(`/quiz/${id}/level/${1}/exercise/${1}`)
   }
 
-  const handleNext = () => {
+  const handleNext = async() => {
+
 
     if(quizName?.includes("React")){
       dispatch(updateExerciseReact({exerciseScore,exercisePassScore,levelsLength,exercisesLength}))
+
     }
     else if(quizName?.includes("JavaScript")){
-      dispatch(updateExerciseJs({exerciseScore,exercisePassScore}))
+      dispatch(updateExerciseJs({exerciseScore,exercisePassScore,levelsLength,exercisesLength}))
      
     } else{
-      dispatch(updateExercisePython({exerciseScore,exercisePassScore}))     
+      dispatch(updateExercisePython({exerciseScore,exercisePassScore,levelsLength,exercisesLength}))     
     }
     
 
@@ -114,7 +136,8 @@ const ModalDisplay = ({show, setShow, lNo, eNo, id, levelsLength, exercisesLengt
       dispatch(updateUserJavascriptExercise())
     } else{
       dispatch(updateUserPythonExercise()) 
-    }    
+    }
+    
     
 
     if(levelsLength>=1 && eNo < exercisesLength)
@@ -138,7 +161,10 @@ const ModalDisplay = ({show, setShow, lNo, eNo, id, levelsLength, exercisesLengt
       setShow(false)
       setExerciseScore(0)
   }
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false)
+    setExerciseScore(0)
+  };
 
   return (
     <Modal show={show} onHide={handleClose}>
@@ -189,7 +215,7 @@ const ModalDisplay = ({show, setShow, lNo, eNo, id, levelsLength, exercisesLengt
         disabled={levelScore < exercisePassScore*exercisesLength}>Go To The Next Level</Button>
       ) : ( <Button variant="success" onClick={handleNext}>
       Go To The Next Exercise</Button>)}
-     
+     {loadingUpdateProfile && <Loader />}
     </Modal.Footer>
   </Modal>
   )

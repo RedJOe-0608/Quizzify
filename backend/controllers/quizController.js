@@ -23,4 +23,30 @@ const getQuizById = asyncHandler(async (req,res) => {
     throw new Error("Quiz not found!")
 })
 
-export {getQuizById, getQuizzes}
+// @desc add a new level to a quiz
+// @route PUT /api/quizzes/:id
+// @access private/admin
+const updateQuiz = asyncHandler(async (req,res) => {
+    const quiz = await Quiz.findById(req.params.id);
+    //from req.body. I will get a new level that needs to be added to a particular quiz
+
+    if(quiz)
+    {
+        quiz.level = [...quiz.level, req.body.newLevel]
+    }
+
+    const updatedQuiz = await quiz.save()
+
+    res.status(200).json({
+        _id: updatedQuiz._id,
+        name: updatedQuiz.name,
+        image: updatedQuiz.image,
+        description: updatedQuiz.description,
+        totalLevels: updatedQuiz.totalLevels,
+        yourProgress: updatedQuiz.yourProgress,
+        level: updatedQuiz.level,
+
+    })
+})
+
+export {getQuizById, getQuizzes,updateQuiz}

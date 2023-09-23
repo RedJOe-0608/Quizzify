@@ -69,7 +69,7 @@ const LoginPage = () => {
         
       </Form>
       <Row className='py-3'>
-        <Col>New Customer? <Link to='/register'>Register</Link></Col>
+        <Col>New Player? <Link to='/register'>Register</Link></Col>
       </Row>
     </FormContainer>
   )

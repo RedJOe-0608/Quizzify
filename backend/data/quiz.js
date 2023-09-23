@@ -16,38 +16,38 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "On What engine does Js run?",
+                                question: "Which of the following keywords is used to define a variable in Javascript?",
                                 options: [
-                                   { "a": "Chrome",},
-                                   { "b": "Safari",},
-                                   { "c": "Firefox",},
-                                   { "d": "v8",},
+                                   { "a": "var",},
+                                   { "b": "let",},
+                                   { "c": "Both A and B",},
+                                   { "d": "None Of The Above",},
                                 ],
-                                correctAnswer: "d",
+                                correctAnswer: "c",
                                 score: 5
                             },
                             {
                                 questionNumber: 2,
-                                question: "What kind of database is MONGODB?",
+                                question: "Which of the following methods is used to access HTML elements using Javascript?",
                                 options: [
-                                   { "a": "SQL",},
-                                   { "b": "NO SQL",},
-                                   { "c": "MY SQL",},
+                                   { "a": "getElementById()",},
+                                   { "b": "getElementsByClassName()",},
+                                   { "c": "Both A and B",},
                                    { "d": "None of the above",},
                                 ],
-                                correctAnswer: 'b',
+                                correctAnswer: 'c',
                                 score: 5
                             },
                             {
                                 questionNumber: 3,
-                                question: "On What engine does Js run?",
+                                question: "What keyword is used to check whether a given property is valid or not?",
                                 options: [
-                                   { "a": "Chrome",},
-                                   { "b": "Safari",},
-                                   { "c": "Firefox",},
-                                   { "d": "v8",},
+                                   { "a": "in",},
+                                   { "b": "is in",},
+                                   { "c": "exists",},
+                                   { "d": "lies",},
                                 ],
-                                correctAnswer: 'd',
+                                correctAnswer: 'a',
                                 score: 5
                             },
                         ],
@@ -58,38 +58,38 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "Level 1 Exercise 2 Q1",
+                                question: "What is the use of the <noscript> tag in JavaScript?",
                                 options: [
-                                    { "a": "Chrome",},
-                                   { "b": "Safari",},
-                                   { "c": "Firefox",},
-                                   { "d": "v8",},
+                                    { "a": "The Contents Are Displayed By Non-Js based browsers",},
+                                   { "b": "Clears all the cookies and cache",},
+                                   { "c": "Both A and B",},
+                                   { "d": "None of the above",},
                                 ],
-                                correctAnswer: 'd',
+                                correctAnswer: 'a',
                                 score: 5
                             },
                             {
                                 questionNumber: 2,
-                                question: "What kind of database is MONGODB?",
+                                question: "When an operator’s value is NULL, the typeof returned by the unary operator is:",
                                 options: [
-                                    { "a": "SQL",},
-                                   { "b": "NO SQL",},
-                                   { "c": "MY SQL",},
-                                   { "d": "None of the above",},
+                                    { "a": "Boolean",},
+                                   { "b": "Undefined",},
+                                   { "c": "Object",},
+                                   { "d": "Integer",},
                                 ],
-                                correctAnswer: 'b',
+                                correctAnswer: 'c',
                                 score: 5
                             },
                             {
                                 questionNumber: 3,
-                                question: "On What engine does Js run?",
+                                question: "Arrays in JavaScript are defined by which of the following statements?",
                                 options: [
-                                    { "a": "Chrome",},
-                                   { "b": "Safari",},
-                                   { "c": "Firefox",},
-                                   { "d": "v8",},
+                                    { "a": "It is an ordered list of values",},
+                                   { "b": "It is an ordered list of objects",},
+                                   { "c": "It is an ordered list of string",},
+                                   { "d": "It is an ordered list of functions",},
                                 ],
-                                correctAnswer: 'd',
+                                correctAnswer: 'a',
                                 score: 5
                             },
                         ],
@@ -105,38 +105,38 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "Level 2 Exercise 1 Q1",
+                                question: "Which of the following is not javascript data types?",
                                 options: [
-                                    { "a": "Chrome",},
-                                   { "b": "Safari",},
-                                   { "c": "Firefox",},
-                                   { "d": "v8",},
+                                    { "a": "Null type",},
+                                   { "b": "Undefined type",},
+                                   { "c": "Number type",},
+                                   { "d": "All of the mentioned",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
                             },
                             {
                                 questionNumber: 2,
-                                question: "What kind of database is MONGODB?",
+                                question: "Which of the following object is the main entry point to all client-side JavaScript features and APIs?",
                                 options: [
-                                    { "a": "SQL",},
-                                    { "b": "NO SQL",},
-                                    { "c": "MY SQL",},
-                                    { "d": "None of the above",},
+                                    { "a": "Position",},
+                                    { "b": "Window",},
+                                    { "c": "Standard",},
+                                    { "d": "Location",},
                                 ],
                                 correctAnswer: 'b',
                                 score: 5
                             },
                             {
                                 questionNumber: 3,
-                                question: "On What engine does Js run?",
+                                question: "Which of the following can be used to call a JavaScript Code Snippet?",
                                 options: [
-                                    { "a": "Chrome",},
-                                    { "b": "Safari",},
-                                    { "c": "Firefox",},
-                                    { "d": "v8",},
+                                    { "a": "Function/Method",},
+                                    { "b": "Preprocessor",},
+                                    { "c": "Triggering Event",},
+                                    { "d": "RMI",},
                                 ],
-                                correctAnswer: 'd',
+                                correctAnswer: 'a',
                                 score: 5
                             },
                         ],
@@ -147,38 +147,38 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "Level 2 Exercise 2 Q1",
+                                question: "Which of the following scoping type does JavaScript use?",
                                 options: [
-                                    { "a": "Chrome",},
-                                    { "b": "Safari",},
-                                    { "c": "Firefox",},
-                                    { "d": "v8",},
+                                    { "a": "Sequential",},
+                                    { "b": "Segmental",},
+                                    { "c": "Lexical",},
+                                    { "d": "Literal",},
                                 ],
-                                correctAnswer: 'd',
+                                correctAnswer: 'c',
                                 score: 5
                             },
                             {
                                 questionNumber: 2,
-                                question: "What kind of database is MONGODB?",
+                                question: "What is the basic difference between JavaScript and Java?",
                                 options: [
-                                    { "a": "SQL",},
-                                    { "b": "NO SQL",},
-                                    { "c": "MY SQL",},
-                                    { "d": "None of the above",},
+                                    { "a": "Functions are considered as fields",},
+                                    { "b": "Functions are values, and there is no hard distinction between methods and fields",},
+                                    { "c": " Variables are specific",},
+                                    { "d": "There is no difference",},
                                 ],
                                 correctAnswer: 'b',
                                 score: 5
                             },
                             {
                                 questionNumber: 3,
-                                question: "On What engine does Js run?",
+                                question: "Why JavaScript Engine is needed?",
                                 options: [
-                                    { "a": "Chrome",},
-                                    { "b": "Safari",},
-                                    { "c": "Firefox",},
-                                    { "d": "v8",},
+                                    { "a": "Both Compiling & Interpreting the JavaScript",},
+                                    { "b": " Parsing the javascript",},
+                                    { "c": "Interpreting the JavaScript",},
+                                    { "d": "Compiling the JavaScript",},
                                 ],
-                                correctAnswer: 'd',
+                                correctAnswer: 'c',
                                 score: 5
                             },
                         ],
@@ -205,38 +205,38 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "Level 1 Exercise 1 Q1",
+                                question: "Who developed Python Programming Language?",
                                 options: [
-                                    { "a": "Chrome",},
-                                    { "b": "Safari",},
-                                    { "c": "Firefox",},
-                                    { "d": "v8",},
+                                    { "a": "Wick van Rossum",},
+                                    { "b": "Rasmus Lerdorf",},
+                                    { "c": "Guido van Rossum",},
+                                    { "d": "Niene Stom",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
                             },
                             {
                                 questionNumber: 2,
-                                question: "What kind of database is MONGODB?",
+                                question: "Which type of Programming does Python support?",
                                 options: [
-                                    { "a": "SQL",},
-                                   { "b": "NO SQL",},
-                                   { "c": "MY SQL",},
-                                   { "d": "None of the above",},
+                                    { "a": "object-oriented programming",},
+                                   { "b": "structured programming",},
+                                   { "c": "functional programming",},
+                                   { "d": "all of the mentioned",},
                                 ],
-                                correctAnswer: 'b',
+                                correctAnswer: 'd',
                                 score: 5
                             },
                             {
                                 questionNumber: 3,
-                                question: "On What engine does Js run?",
+                                question: " Is Python case sensitive when dealing with identifiers?",
                                 options: [
-                                    { "a": "Chrome",},
-                                   { "b": "Safari",},
-                                   { "c": "Firefox",},
-                                   { "d": "v8",},
+                                    { "a": "no",},
+                                   { "b": "yes",},
+                                   { "c": "machine dependent",},
+                                   { "d": "none of the mentioned",},
                                 ],
-                                correctAnswer: 'd',
+                                correctAnswer: 'b',
                                 score: 5
                             },
                         ],
@@ -247,36 +247,36 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "Level 1 Exercise 2 Q1",
+                                question: "Which of the following is not a keyword in Python language?",
                                 options: [
-                                    { "a": "Chrome",},
-                                   { "b": "Safari",},
-                                   { "c": "Firefox",},
-                                   { "d": "v8",},
+                                    { "a": "val",},
+                                   { "b": "raise",},
+                                   { "c": "try",},
+                                   { "d": "with",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
                             },
                             {
                                 questionNumber: 2,
-                                question: "What kind of database is MONGODB?",
+                                question: "Which of the following is the correct extension of the Python file?",
                                 options: [
-                                    { "a": "SQL",},
-                                   { "b": "NO SQL",},
-                                   { "c": "MY SQL",},
-                                   { "d": "None of the above",},
+                                    { "a": ".python",},
+                                   { "b": ".pl",},
+                                   { "c": ".py",},
+                                   { "d": ".p",},
                                 ],
-                                correctAnswer: 'b',
+                                correctAnswer: 'c',
                                 score: 5
                             },
                             {
                                 questionNumber: 3,
-                                question: "On What engine does Js run?",
+                                question: "All keywords in Python are in _________",
                                 options: [
-                                    { "a": "Chrome",},
-                                   { "b": "Safari",},
-                                   { "c": "Firefox",},
-                                   { "d": "v8",},
+                                    { "a": "Capitalized",},
+                                   { "b": " lower case",},
+                                   { "c": "UPPER CASE",},
+                                   { "d": "None of the mentioned",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -294,38 +294,38 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "Level 2 Exercise 1 Q1",
+                                question: "Which of the following is used to define a block of code in Python language?",
                                 options: [
-                                    { "a": "Chrome",},
-                                    { "b": "Safari",},
-                                    { "c": "Firefox",},
-                                    { "d": "v8",},
+                                    { "a": "Indentation",},
+                                    { "b": "Key",},
+                                    { "c": "Brackets",},
+                                    { "d": "All of the mentioned",},
                                 ],
-                                correctAnswer: 'd',
+                                correctAnswer: 'a',
                                 score: 5
                             },
                             {
                                 questionNumber: 2,
-                                question: "What kind of database is MONGODB?",
+                                question: "Which keyword is used for function in Python language?",
                                 options: [
-                                    { "a": "SQL",},
-                                    { "b": "NO SQL",},
-                                    { "c": "MY SQL",},
-                                    { "d": "None of the above",},
+                                    { "a": "Function",},
+                                    { "b": "def",},
+                                    { "c": "Fun",},
+                                    { "d": "Define",},
                                 ],
                                 correctAnswer: 'b',
                                 score: 5
                             },
                             {
                                 questionNumber: 3,
-                                question: "On What engine does Js run?",
+                                question: "What does pip stand for python?",
                                 options: [
-                                    { "a": "Chrome",},
-                                   { "b": "Safari",},
-                                   { "c": "Firefox",},
-                                   { "d": "v8",},
+                                    { "a": "Pip Installs Python",},
+                                   { "b": "Pip Installs Packages",},
+                                   { "c": "Preferred Installer Program",},
+                                   { "d": "All of the mentioned",},
                                 ],
-                                correctAnswer: 'd',
+                                correctAnswer: 'c',
                                 score: 5
                             },
                         ],
@@ -336,36 +336,36 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "Level 2 Exercise 2 Q1",
+                                question: "Which of the following functions is a built-in function in python?",
                                 options: [
-                                    { "a": "Chrome",},
-                                    { "b": "Safari",},
-                                    { "c": "Firefox",},
-                                    { "d": "v8",},
-                                ],
-                                correctAnswer: 'd',
-                                score: 5
-                            },
-                            {
-                                questionNumber: 2,
-                                question: "What kind of database is MONGODB?",
-                                options: [
-                                    { "a": "SQL",},
-                                    { "b": "NO SQL",},
-                                    { "c": "MY SQL",},
-                                    { "d": "None of the above",},
+                                    { "a": "factorial()",},
+                                    { "b": "print()",},
+                                    { "c": "seed()",},
+                                    { "d": "sqrt()",},
                                 ],
                                 correctAnswer: 'b',
                                 score: 5
                             },
                             {
-                                questionNumber: 3,
-                                question: "On What engine does Js run?",
+                                questionNumber: 2,
+                                question: "What will be the output of the following Python function?    min(max(False,-3,-4), 2,7)",
                                 options: [
-                                    { "a": "Chrome",},
-                                    { "b": "Safari",},
-                                    { "c": "Firefox",},
-                                    { "d": "v8",},
+                                    { "a": "-4",},
+                                    { "b": "-3",},
+                                    { "c": " 2",},
+                                    { "d": "False",},
+                                ],
+                                correctAnswer: 'd',
+                                score: 5
+                            },
+                            {
+                                questionNumber: 3,
+                                question: "Which of the following is not a core data type in Python programming?",
+                                options: [
+                                    { "a": "Tuples",},
+                                    { "b": "Lists",},
+                                    { "c": "Class",},
+                                    { "d": "Dictionary",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
@@ -393,23 +393,23 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "Level 1 Exercise 1 Q1",
+                                question: "What is React.js?",
                                 options: [
-                                    { "a": "Chrome",},
-                                   { "b": "Safari",},
-                                   { "c": "Firefox",},
-                                   { "d": "v8",},
+                                    { "a": "Open-source JavaScript back-end library",},
+                                   { "b": "JavaScript front-end library to create a database",},
+                                   { "c": "Free and open-source JavaScript front-end library",},
+                                   { "d": "None of the mentioned",},
                                 ],
-                                correctAnswer: 'd',
+                                correctAnswer: 'a',
                                 score: 5
                             },
                             {
                                 questionNumber: 2,
-                                question: "What kind of database is MONGODB?",
+                                question: "Which of the following acts as the input of a class-based component?",
                                 options: [
-                                    { "a": "SQL",},
-                                    { "b": "NO SQL",},
-                                    { "c": "MY SQL",},
+                                    { "a": "Class",},
+                                    { "b": "Props",},
+                                    { "c": "Factory",},
                                     { "d": "None of the above",},
                                 ],
                                 correctAnswer: 'b',
@@ -417,14 +417,14 @@ const quiz = [
                             },
                             {
                                 questionNumber: 3,
-                                question: "On What engine does Js run?",
+                                question: "How many elements can a valid react component return?",
                                 options: [
-                                    { "a": "Chrome",},
-                                    { "b": "Safari",},
-                                    { "c": "Firefox",},
-                                    { "d": "v8",},
+                                    { "a": "React doesn’t return element",},
+                                    { "b": "1 Element",},
+                                    { "c": "More than 1 element",},
+                                    { "d": "None of the mentioned",},
                                 ],
-                                correctAnswer: 'd',
+                                correctAnswer: 'b',
                                 score: 5
                             },
                         ],
@@ -435,38 +435,38 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "Level 1 Exercise 2 Q1",
+                                question: "Which of the following is method is not a part of ReactDOM?",
                                 options: [
-                                    { "a": "Chrome",},
-                                   { "b": "Safari",},
-                                   { "c": "Firefox",},
-                                   { "d": "v8",},
+                                    { "a": "ReactDOM.hydrate()",},
+                                   { "b": "ReactDOM.destroy()",},
+                                   { "c": "ReactDOM.createPortal()",},
+                                   { "d": "All of the mentioned",},
                                 ],
-                                correctAnswer: 'd',
+                                correctAnswer: 'b',
                                 score: 5
                             },
                             {
                                 questionNumber: 2,
-                                question: "What kind of database is MONGODB?",
+                                question: "Which ReactJS function renders HTML to the web page?",
                                 options: [
-                                    { "a": "SQL",},
-                                    { "b": "NO SQL",},
-                                    { "c": "MY SQL",},
-                                    { "d": "None of the above",},
+                                    { "a": "render()",},
+                                    { "b": "ReactDOM.render()",},
+                                    { "c": "renders()",},
+                                    { "d": "ReactDOM.renders()",},
                                 ],
                                 correctAnswer: 'b',
                                 score: 5
                             },
                             {
                                 questionNumber: 3,
-                                question: "On What engine does Js run?",
+                                question: "JSX stands for _____.",
                                 options: [
-                                    { "a": "Chrome",},
-                                   { "b": "Safari",},
-                                   { "c": "Firefox",},
-                                   { "d": "v8",},
+                                    { "a": "JSON",},
+                                   { "b": "JSON XML",},
+                                   { "c": "JavaScript XML",},
+                                   { "d": "JavaScript and AngularJS",},
                                 ],
-                                correctAnswer: 'd',
+                                correctAnswer: 'c',
                                 score: 5
                             },
                         ],
@@ -477,38 +477,38 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "Level 1 Exercise 3 Q1",
+                                question: " JSX allows us to write _____.",
                                 options: [
-                                    { "a": "Chrome",},
-                                    { "b": "Safari",},
-                                    { "c": "Firefox",},
-                                    { "d": "v8",},
+                                    { "a": "jQuery in React",},
+                                    { "b": "Angular Code in React",},
+                                    { "c": "MySQL in React",},
+                                    { "d": "HTML in React",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
                             },
                             {
                                 questionNumber: 2,
-                                question: "What kind of database is MONGODB?",
+                                question: "Which ReactJS command is used to create a new application?",
                                 options: [
-                                    { "a": "SQL",},
-                                    { "b": "NO SQL",},
-                                    { "c": "MY SQL",},
-                                    { "d": "None of the above",},
+                                    { "a": "create-react-app",},
+                                    { "b": "new-react-app",},
+                                    { "c": "create-new-reactapp",},
+                                    { "d": "react-app",},
                                 ],
-                                correctAnswer: 'b',
+                                correctAnswer: 'a',
                                 score: 5
                             },
                             {
                                 questionNumber: 3,
-                                question: "On What engine does Js run?",
+                                question: "ES6 stands for ____.",
                                 options: [
-                                    { "a": "Chrome",},
-                                   { "b": "Safari",},
-                                   { "c": "Firefox",},
-                                   { "d": "v8",},
+                                    { "a": "ECMAScript 6",},
+                                   { "b": "Extended-JavaScript Version 6",},
+                                   { "c": "Extensive-JavaScript 6",},
+                                   { "d": "Expanded-JavaScript 6",},
                                 ],
-                                correctAnswer: 'd',
+                                correctAnswer: 'a',
                                 score: 5
                             },
                         ],
@@ -524,38 +524,38 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "Level 2 Exercise 1 Q1",
+                                question: "In ES6 – Which keyword is used for class inheritance?",
                                 options: [
-                                    { "a": "Chrome",},
-                                   { "b": "Safari",},
-                                   { "c": "Firefox",},
-                                   { "d": "v8",},
+                                    { "a": "extends",},
+                                   { "b": "extend",},
+                                   { "c": "inheritance",},
+                                   { "d": "inheritances",},
                                 ],
-                                correctAnswer: 'd',
+                                correctAnswer: 'a',
                                 score: 5
                             },
                             {
                                 questionNumber: 2,
-                                question: "What kind of database is MONGODB?",
+                                question: " In ES6 – let is the block scoped version of ____.",
                                 options: [
-                                    { "a": "SQL",},
-                                    { "b": "NO SQL",},
-                                    { "c": "MY SQL",},
+                                    { "a": "const",},
+                                    { "b": "function",},
+                                    { "c": "var",},
                                     { "d": "None of the above",},
                                 ],
-                                correctAnswer: 'b',
+                                correctAnswer: 'c',
                                 score: 5
                             },
                             {
                                 questionNumber: 3,
-                                question: "On What engine does Js run?",
+                                question: "Which method is used to generate lists?",
                                 options: [
-                                    { "a": "Chrome",},
-                                   { "b": "Safari",},
-                                   { "c": "Firefox",},
-                                   { "d": "v8",},
+                                    { "a": "map()",},
+                                   { "b": "generate()",},
+                                   { "c": "new()",},
+                                   { "d": "filter()",},
                                 ],
-                                correctAnswer: 'd',
+                                correctAnswer: 'a',
                                 score: 5
                             },
                         ],
@@ -566,38 +566,38 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "Level 2 Exercise 2 Q1",
+                                question: "What is the default port where webpack-server runs?",
                                 options: [
-                                    { "a": "Chrome",},
-                                    { "b": "Safari",},
-                                    { "c": "Firefox",},
-                                    { "d": "v8",},
+                                    { "a": "443",},
+                                    { "b": "3030",},
+                                    { "c": "3306",},
+                                    { "d": "8080",},
                                 ],
                                 correctAnswer: 'd',
                                 score: 5
                             },
                             {
                                 questionNumber: 2,
-                                question: "What kind of database is MONGODB?",
+                                question: "What are components in ReactJS?",
                                 options: [
-                                    { "a": "SQL",},
-                                    { "b": "NO SQL",},
-                                    { "c": "MY SQL",},
+                                    { "a": "Components are like functions that return HTML elements.",},
+                                    { "b": "Components are the HTML elements.",},
+                                    { "c": "Components are the set of variables defined in ReactJS.",},
                                     { "d": "None of the above",},
                                 ],
-                                correctAnswer: 'b',
+                                correctAnswer: 'a',
                                 score: 5
                             },
                             {
                                 questionNumber: 3,
-                                question: "On What engine does Js run?",
+                                question: "What of the following is used in React.js to increase performance?",
                                 options: [
-                                    { "a": "Chrome",},
-                                    { "b": "Safari",},
-                                    { "c": "Firefox",},
-                                    { "d": "v8",},
+                                    { "a": "Original DOM",},
+                                    { "b": "Virtual DOM",},
+                                    { "c": "Both A and B.",},
+                                    { "d": "None of the above",},
                                 ],
-                                correctAnswer: 'd',
+                                correctAnswer: 'b',
                                 score: 5
                             },
                         ],
@@ -625,26 +625,26 @@ const quiz = [
                             },
                             {
                                 questionNumber: 2,
-                                question: "What kind of database is MONGODB?",
+                                question: "What is the use of webpack command in React.js?",
                                 options: [
-                                    { "a": "Chrome",},
-                                   { "b": "Safari",},
-                                   { "c": "Firefox",},
-                                   { "d": "v8",},
+                                    { "a": "The webpack command is used to transpile all the JavaScript down into one file.",},
+                                   { "b": "It runs React local development server.",},
+                                   { "c": "It is a module bundler.",},
+                                   { "d": "None of the above.",},
                                 ],
-                                correctAnswer: 'b',
+                                correctAnswer: 'c',
                                 score: 5
                             },
                             {
                                 questionNumber: 3,
-                                question: "On What engine does Js run?",
+                                question: "Why is the usage of setState?",
                                 options: [
-                                    { "a": "Chrome",},
-                                    { "b": "Safari",},
-                                    { "c": "Firefox",},
-                                    { "d": "v8",},
+                                    { "a": "Invoke code after the setState operation is done.",},
+                                    { "b": "Replace the state completely instead of the default merge action.",},
+                                    { "c": "Access the previous state before the setState operation.",},
+                                    { "d": "None of the above.",},
                                 ],
-                                correctAnswer: 'd',
+                                correctAnswer: 'a',
                                 score: 5
                             },
                         ],
@@ -655,23 +655,23 @@ const quiz = [
                         questions: [
                             {
                                 questionNumber: 1,
-                                question: "Level 3 Exercise 2 Q1",
+                                question: "How can you set a default value for an uncontrolled form field?",
                                 options: [
-                                    { "a": "Chrome",},
-                                    { "b": "Safari",},
-                                    { "c": "Firefox",},
-                                    { "d": "v8",},
+                                    { "a": "By using the value property",},
+                                    { "b": "By using the defaultValue property",},
+                                    { "c": "By using the default property",},
+                                    { "d": "It is assigned automatically.",},
                                 ],
-                                correctAnswer: 'd',
+                                correctAnswer: 'b',
                                 score: 5
                             },
                             {
                                 questionNumber: 2,
-                                question: "What kind of database is MONGODB?",
+                                question: "We can update the state in React.js by calling to setState() method. These calls are:",
                                 options: [
-                                    { "a": "SQL",},
-                                    { "b": "NO SQL",},
-                                    { "c": "MY SQL",},
+                                    { "a": "Synchronous in nature.",},
+                                    { "b": "Asynchronous in nature.",},
+                                    { "c": "Are asynchronous but can be made synchronous when required.",},
                                     { "d": "None of the above",},
                                 ],
                                 correctAnswer: 'b',
@@ -679,14 +679,14 @@ const quiz = [
                             },
                             {
                                 questionNumber: 3,
-                                question: "On What engine does Js run?",
+                                question: "What is true for the keys given to a list of elements in React?",
                                 options: [
-                                    { "a": "Chrome",},
-                                   { "b": "Safari",},
-                                   { "c": "Firefox",},
-                                   { "d": "v8",},
+                                    { "a": "Unique in the DOM.",},
+                                   { "b": "Unique among the siblings only.",},
+                                   { "c": "Do not require to be unique.",},
+                                   { "d": "None of the above.",},
                                 ],
-                                correctAnswer: 'd',
+                                correctAnswer: 'b   ',
                                 score: 5
                             },
                         ],

@@ -41,7 +41,7 @@ const pythonSlice = createSlice({
             localStorage.removeItem("python")
             console.log(current(state));
             console.log(initialState);
-            Object.assign(state,initialState)
+            Object.assign(state,initialState) // updating the redux state
             console.log(state);
             let userInfo = action.payload
             userInfo = {...userInfo,python: initialState}

@@ -1,15 +1,20 @@
 import {ListGroup, Button} from 'react-bootstrap'
 
-const Questions = ({questions, exerciseScore, setExerciseScore}) => {
 
+
+const Questions = ({questions, exerciseScore, setExerciseScore}) => {
 
 // console.log(questions);
   
-const handleClick = (option) => {
+const handleClick = (option,e) => {
   // console.log(Object.keys(option)[0] === questions.correctAnswer);
   if(Object.keys(option)[0] === questions.correctAnswer)
   {
     setExerciseScore((prevExerciseScore) => prevExerciseScore + questions.score)
+    // document.getElementById(e?.currentTarget?.id).style.backgroundColor = 'green'
+  }
+  else{
+    // document.getElementById(e?.currentTarget?.id).style.backgroundColor = 'red'
   }
     // console.log(`option ${Object.values(option)[0]} clicked!`)
 }
@@ -26,9 +31,12 @@ const handleClick = (option) => {
             <div className='d-flex align-items-center' style={{marginBottom: '1rem'}}>
                 <p className='mb-0' style={{marginRight: '1.5rem'}}>{ch}</p>
                 <Button 
-                className='btn-block' 
+                className='btn-block'
+                id={(Math.random()*1000).toFixed()}
+                variant="info"
+                // active
                 style={{minWidth: '7rem'}}
-                onClick={() => handleClick(option)}
+                onClick={(e) => handleClick(option,e)}
                 >{Object.values(option)[0]}</Button> 
                
             </div>

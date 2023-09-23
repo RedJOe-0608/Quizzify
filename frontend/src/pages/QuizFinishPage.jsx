@@ -1,3 +1,4 @@
+import React from 'react'
 import {useParams, Link, useNavigate} from 'react-router-dom'
 import {Row, Col, Image, ListGroup,Card, Button} from 'react-bootstrap'
 import { useGetSingleQuizQuery } from '../slices/quizzesApiSlice'
@@ -8,72 +9,32 @@ import {resumeQuizPython, resetQuizPython,addExercisePython,addLevelPython} from
 import {resumeQuizJs, resetQuizJs, addExerciseJs, addLevelJs} from '../slices/javascriptSlice'
 import {resumeQuizReact, resetQuizReact, addExerciseReact, addLevelReact} from '../slices/reactSlice'
 import { useEffect } from 'react'
-
-
-
-// Level 2 will only be added to the redux state when level 1 is completed and so on
-
-
-
-const StartQuizPage = () => {
+const QuizFinishPage = () => {
 
     const {id: quizId} = useParams()
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
+    
     const {data: singleQuiz, isLoading, error} = useGetSingleQuizQuery(quizId)
     console.log(singleQuiz);
-    
-
     const quizName = singleQuiz?.name
 
-
-      let state = useSelector((state) => {
-       if(quizName?.includes("React")){
-         return state.react
-       }
-       else if(quizName?.includes("JavaScript")){
-         return state.javascript
-       } else{
-         return state.python     
-       }
-     })
-
+    
     const {userInfo} = useSelector((state) => state.auth)
 
-
-    //if a user is logged in
-    if(userInfo){
-      if(quizName?.includes("React")){
-        dispatch(resumeQuizReact({userInfo}))
-      }
-      else if(quizName?.includes("JavaScript")){
-        dispatch(resumeQuizJs({userInfo}))
-      } else if(quizName?.includes("Python")){
-        dispatch(resumeQuizPython({userInfo}))    
-      }
-      
-      
-    }
-
-    const level = state?.level
-      let levelNo = level[level.length-1]?.levelNo;
-      let ex = level[level.length-1]?.ex;
-
-       let exerciseNo = ex[ex.length - 1]?.exerciseNo;
-
-       const resumeQuiz = () => {
-        if(userInfo && (state.progress == singleQuiz?.totalLevels))
-        {
-          navigate(`/quiz/${quizId}/quizfinish`)
+    let state = useSelector((state) => {
+        if(quizName?.includes("React")){
+          return state.react
         }
-        else
-        {
-          userInfo ? navigate(`/quiz/${quizId}/level/${levelNo}/exercise/${exerciseNo}`) : navigate('/login')
+        else if(quizName?.includes("JavaScript")){
+          return state.javascript
+        } else{
+          return state.python     
         }
-       }
+      })
 
-       const resetQuiz = () => {
+    const resetQuiz = () => {
         if(quizName?.includes("React")){
           dispatch(resetQuizReact(userInfo))
         }
@@ -82,19 +43,13 @@ const StartQuizPage = () => {
         } else if(quizName?.includes("Python")){
           dispatch(resetQuizPython(userInfo))  
         }
-        userInfo ? navigate(`/quiz/${quizId}/level/${1}/exercise/${1}`) : navigate('/register')
+        navigate(`/quiz/${quizId}/level/${1}/exercise/${1}`)
        }
-    
+
+ 
+
   return (
-    <>
-    {isLoading ? (
-       <Loader />
-    ) : error ? (
-      <Message variant="danger">{error?.data?.message || error?.error}</Message>
-    ) : (
-      <>
-      <Link className='btn btn-light my-3' to="/">Go Back</Link>
-      <Row>
+    <Row>
         <Col md={5}>
           <Image src={singleQuiz?.image} alt={singleQuiz?.name} fluid/>
         </Col>
@@ -107,11 +62,12 @@ const StartQuizPage = () => {
               <h3>{singleQuiz?.name}</h3>
             </ListGroup.Item>
             {userInfo &&  <ListGroup.Item> 
-            <p>Levels Completed: {state.progress} / {singleQuiz?.totalLevels}</p>  
+            {/* <p>Levels Completed: {state.progress} / {singleQuiz?.totalLevels}</p>   */}
+            <p>Congratulations On Completing The Quiz!</p>
             </ListGroup.Item>}
            
             <ListGroup.Item>
-              <p>This {singleQuiz?.name} has {singleQuiz?.totalLevels} levels. Complete them to test your knowledge!</p>
+              <p>Your Score: {state?.overallScore}</p>
             </ListGroup.Item>
           
             <ListGroup.Item>
@@ -119,25 +75,23 @@ const StartQuizPage = () => {
               className='btn-block'
               style={{marginRight: '1.5rem'}}
                 type='button'
-                onClick={resumeQuiz}
+                onClick={() => {navigate('/')
+                }}
             >
-              {userInfo ? 'Resume Quiz' : 'Login'}  
+              Try Other Quizzes  
             </Button>
             <Button
               className='btn-block'
                 type='button'
                 onClick={resetQuiz}
             >
-              {userInfo ? "Start Over": 'Register'}
+              Start Over
             </Button>
             </ListGroup.Item>
           </ListGroup>
         </Col>
       </Row>
-    </>
-    )}
-   </> 
   )
 }
 
-export default StartQuizPage
+export default QuizFinishPage

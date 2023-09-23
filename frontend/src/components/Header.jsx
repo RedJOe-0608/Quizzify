@@ -6,6 +6,10 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useLogoutMutation } from '../slices/usersApiSlice'
 import { logout } from '../slices/authSlice'
 import { useNavigate } from 'react-router-dom'
+import { resetQuizJs } from '../slices/javascriptSlice'
+import { resetQuizReact } from '../slices/reactSlice'
+import { resetQuizPython } from '../slices/pythonSlice'
+import LeaderBoard from './LeaderBoard'
 
 const Header = () => {
 
@@ -18,6 +22,9 @@ const Header = () => {
         try {
             await logoutApiCall().unwrap()
                 dispatch(logout())
+                // dispatch(resetQuizJs(),resetQuizPython(),resetQuizReact())
+                // dispatch(resetQuizPython())
+                // dispatch(resetQuizReact())
                 navigate('/login')
         } catch (error) {
             console.log(error);
@@ -36,18 +43,33 @@ const Header = () => {
                 <Navbar.Collapse id='basic-navbar-nav'>
                     <Nav className='ms-auto'>
                         {userInfo ? (
-                            <NavDropdown title={userInfo.name} id='username'>
+                           <>
+                           
+                            <LinkContainer to='/leaderboard' >
+                                <Nav.Link>Leaderboard</Nav.Link>
+                            </LinkContainer>
+                           <NavDropdown title={userInfo.name} id='username'>
                                 <LinkContainer to='/profile'>
                                     <NavDropdown.Item>Profile</NavDropdown.Item>
                                 </LinkContainer>
                                 <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
                             </NavDropdown>
+                           </>
                         ) : (
                              <LinkContainer to='/login'>
                              <Nav.Link><FaUser />Sign In</Nav.Link>
                              </LinkContainer>
                         )}
-                       
+                       {userInfo && userInfo.isAdmin && (
+                        <NavDropdown title='Admin' id='adminmenu'>
+                            <LinkContainer to='/admin/quizlist'>
+                               <NavDropdown.Item>Quizzes</NavDropdown.Item> 
+                            </LinkContainer>
+                            <LinkContainer to='/admin/userlist'>
+                               <NavDropdown.Item>Users</NavDropdown.Item> 
+                            </LinkContainer>
+                        </NavDropdown>
+                       )}
                     </Nav>
                 </Navbar.Collapse>
             </Container>

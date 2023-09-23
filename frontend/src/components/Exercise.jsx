@@ -1,14 +1,51 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Questions from './Questions'
 import { Button } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 import ModalDisplay from './ModalDisplay';
 import { useGetSingleQuizQuery } from '../slices/quizzesApiSlice';
 import { useSelector } from 'react-redux';
+import { useProfileMutation } from '../slices/usersApiSlice';
 
 const Exercise = ({exercise, exercisesLength, levelsLength}) => {
   const navigate = useNavigate()
     const {levelNo, exerciseNo, id:quizId} = useParams()
+
+    const {data: singleQuiz, isLoading, error} = useGetSingleQuizQuery(quizId)
+    console.log(singleQuiz);
+
+    const quizName = singleQuiz?.name
+    const {userInfo} = useSelector((state) => state.auth)
+
+    const [updateProfile, {isLoading: loadingUpdateProfile}] = useProfileMutation()
+
+    let state = useSelector((state) => {
+      if(quizName?.includes("React")){
+        return state.react
+      }
+      else if(quizName?.includes("JavaScript")){
+        return state.javascript
+      } else{
+        return state.python     
+      }
+    })
+
+    //The logic behind this useEffect is that when each exercise page loads, we will then update the user details in the database. So, when we click on next in the modal, the neccessary calculations will done (i.e. a new level/exercise will be added, and then when we navigate to the next exercise page, all the made changes will be reflected in the database)
+    useEffect(() => {
+      const updateUserDB = async() => {
+        if(quizName?.includes("React")){
+        await updateProfile({_id: userInfo._id,react: state})
+      }
+      else if(quizName?.includes("JavaScript")){
+        await updateProfile({_id: userInfo._id,javascript: state})
+      } else if(quizName?.includes("Python")){
+        await updateProfile({_id: userInfo,python: state})
+      }
+
+      }
+
+      updateUserDB()
+    },[state,quizName,updateProfile, userInfo._id])
     
     
     // console.log(levelsLength, exercisesLength);
