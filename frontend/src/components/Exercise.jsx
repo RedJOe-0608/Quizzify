@@ -88,7 +88,7 @@ const Exercise = ({exercise, exercisesLength, levelsLength}) => {
     />}
     <form onSubmit={handleSubmit}>
     {exercise?.questions?.map((questions) => {
-      return  <Questions questions={questions} exerciseScore={exerciseScore} setExerciseScore={setExerciseScore} />   
+      return  <Questions key={questions._id} questions={questions} exerciseScore={exerciseScore} setExerciseScore={setExerciseScore} />   
     })}
      <Button 
      type='submit'
