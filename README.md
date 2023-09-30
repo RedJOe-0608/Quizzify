@@ -33,12 +33,6 @@ Ready to Quizzify? Follow these simple steps:
 
 ## Badges
 
-![Alt text](image.png)
-![Alt text](image-1.png)
-![Alt text](image-2.png)
-![Alt text](image-3.png)
-![Alt text](image-4.png)
-
 Add badges from somewhere like: [shields.io](https://shields.io/)
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
