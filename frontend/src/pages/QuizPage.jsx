@@ -34,14 +34,6 @@ const QuizPage = () => {
    console.log(singleExercise); 
 
  
-// console.log(exercises);
-  // levelFilteredExcercises = !isLoading && ( exercises[exerciseNo - 1]?.filter((e) => e?.exerciseNumber >= exerciseNo))
-  // !isLoading && console.log(levelFilteredExcercises);
-//  !isLoading && (exercises[levelNo-1] = levelFilteredExcercises)
-//  !isLoading && console.log(exercises);
-  
-
-
  
  return (
   isLoading ? (<Loader />) : error ? (

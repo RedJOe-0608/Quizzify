@@ -100,9 +100,6 @@ const StartQuizPage = () => {
         </Col>
         <Col md={7}>
           <ListGroup variant='flush'>
-          {/* <ListGroup.Item>
-            <h2>{value}</h2>
-          </ListGroup.Item> */}
             <ListGroup.Item>
               <h3>{singleQuiz?.name}</h3>
             </ListGroup.Item>
@@ -111,7 +108,7 @@ const StartQuizPage = () => {
             </ListGroup.Item>}
            
             <ListGroup.Item>
-              <p>This {singleQuiz?.name} has {singleQuiz?.totalLevels} levels. Complete them to test your knowledge!</p>
+              <p>This {singleQuiz?.name} has {singleQuiz?.totalLevels} levels. Each level has multiple MCQ exercises. You need to pass each exercise in order to move on to the next exercise. Complete them to test your knowledge!</p>
             </ListGroup.Item>
           
             <ListGroup.Item>
