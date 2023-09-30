@@ -15,15 +15,24 @@ export const quizzesApiSlice = apiSlice.injectEndpoints({
             }),
             keepUnusedDataFor: 5
         }),
-        updateSingleQuiz: builder.mutation({
-            query: (quizId, newLevel) => ({
+        AddNewLevelToQuiz: builder.mutation({
+            query: ({quizId, newLevel}) => ({
                 url: `${QUIZZES_URL}/${quizId}`,
                 method: 'PUT',
                 body: newLevel
             }),
             keepUnusedDataFor: 5
-        })
+        }),
+        AddNewExerciseToLevel: builder.mutation({
+            query: ({quizId, newExercise, levelNumber}) => ({
+                url: `${QUIZZES_URL}/${quizId}/${levelNumber}`,
+                method: 'PUT',
+                body: {newExercise}
+            }),
+            keepUnusedDataFor: 5
+        }),
+         
     })
 })
 
-export const {useGetQuizzesQuery, useGetSingleQuizQuery, useUpdateSingleQuizMutation} = quizzesApiSlice
+export const {useGetQuizzesQuery, useGetSingleQuizQuery, useAddNewLevelToQuizMutation, useAddNewExerciseToLevelMutation} = quizzesApiSlice
