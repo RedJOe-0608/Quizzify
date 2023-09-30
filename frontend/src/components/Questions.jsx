@@ -1,18 +1,22 @@
+import { useState } from 'react'
 import {ListGroup, Button} from 'react-bootstrap'
-
+import {toast} from 'react-toastify'
 
 
 const Questions = ({questions, exerciseScore, setExerciseScore}) => {
-
-// console.log(questions);
+const [disabled, setDisabled] = useState(false)
   
 const handleClick = (option,e) => {
-  // console.log(Object.keys(option)[0] === questions.correctAnswer);
   e?.currentTarget.classList.toggle("active")
+  setDisabled(true)
   if(Object.keys(option)[0] === questions.correctAnswer)
   {
     setExerciseScore((prevExerciseScore) => prevExerciseScore + questions.score)
- 
+    toast.success("Right Answer!")
+  }
+  else
+  {
+    toast.error("Wrong Answer!")
   }
 }
     
@@ -21,14 +25,13 @@ const handleClick = (option,e) => {
       <ListGroup.Item >
         <h2 className='mb-5'>{questions.question}</h2>
         {questions?.options.map((option,i) => {
-            // console.log(option);
             let ch = String.fromCharCode(97+i)
-            // console.log(Object.values(option)[0]);
             return (
             <div key={i} className='d-flex align-items-center' style={{marginBottom: '1rem'}}>
                 <p className='mb-0' style={{marginRight: '1.5rem'}}>{ch}</p>
                 <Button 
                 className='btn-block'
+                disabled={disabled}
                 id={(Math.random()*1000).toFixed()}
                 variant="info"
                 style={{minWidth: '7rem'}}

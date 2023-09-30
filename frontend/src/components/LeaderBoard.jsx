@@ -35,6 +35,7 @@ console.log(filteredData);
   
   return (
     <>
+      <h1 className='mb-4'>LEADERBOARD</h1>
       <Table stripped="true" hover responsive className='table-sm'>
 
         <thead>
