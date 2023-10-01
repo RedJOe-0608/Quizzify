@@ -1,6 +1,5 @@
 import React from 'react'
 import { Table } from 'react-bootstrap'
-import { useSelector } from 'react-redux'
 import { useGetUsersQuery } from '../slices/usersApiSlice'
 
 const LeaderBoard = () => {

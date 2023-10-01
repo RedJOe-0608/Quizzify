@@ -1,13 +1,11 @@
 import React from 'react'
-import {useParams, Link, useNavigate} from 'react-router-dom'
-import {Row, Col, Image, ListGroup,Card, Button} from 'react-bootstrap'
+import {useParams, useNavigate} from 'react-router-dom'
+import {Row, Col, Image, ListGroup, Button} from 'react-bootstrap'
 import { useGetSingleQuizQuery } from '../slices/quizzesApiSlice'
 import { useSelector, useDispatch } from 'react-redux'
-import Loader from '../components/Loader'
-import Message from '../components/Message'
-import {resumeQuizPython, resetQuizPython,addExercisePython,addLevelPython} from '../slices/pythonSlice'
-import {resumeQuizJs, resetQuizJs, addExerciseJs, addLevelJs} from '../slices/javascriptSlice'
-import {resumeQuizReact, resetQuizReact, addExerciseReact, addLevelReact} from '../slices/reactSlice'
+import { resetQuizPython} from '../slices/pythonSlice'
+import {resetQuizJs} from '../slices/javascriptSlice'
+import {resetQuizReact} from '../slices/reactSlice'
 import { useEffect } from 'react'
 import { useProfileMutation } from '../slices/usersApiSlice'
 const QuizFinishPage = () => {
@@ -16,11 +14,11 @@ const QuizFinishPage = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    const {data: singleQuiz, isLoading, error} = useGetSingleQuizQuery(quizId)
+    const {data: singleQuiz} = useGetSingleQuizQuery(quizId)
     console.log(singleQuiz);
     const quizName = singleQuiz?.name
 
-    const [updateProfile, {isLoading: loadingUpdateProfile}] = useProfileMutation()
+    const [updateProfile] = useProfileMutation()
     const {userInfo} = useSelector((state) => state.auth)
 
     let state = useSelector((state) => {
@@ -49,7 +47,7 @@ const QuizFinishPage = () => {
         }
   
         updateUserDB()
-      },[state,quizName,updateProfile, userInfo._id])
+      },[state,quizName,updateProfile,userInfo, userInfo._id])
 
     
   

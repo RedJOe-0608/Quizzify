@@ -1,9 +1,6 @@
 import {useState, useEffect} from 'react'
-import {useNavigate, Link, useParams} from 'react-router-dom'
-import {Form, Button, ButtonGroup} from 'react-bootstrap'
-import Message from '../components/Message'
-import Loader from '../components/Loader'
-import FormContainer from '../components/FormContainer'
+import {useParams} from 'react-router-dom'
+import {Form, Button} from 'react-bootstrap'
 import {toast} from 'react-toastify'
 import { useGetSingleQuizQuery, useAddNewLevelToQuizMutation, useAddNewExerciseToLevelMutation} from '../slices/quizzesApiSlice'
 import AddNewQuestion from '../components/AddNewQuestion'
@@ -11,7 +8,7 @@ import AddNewQuestion from '../components/AddNewQuestion'
 const AdminQuizEditPage = () => {
 
     const {id: quizId} = useParams()
-    const {data: singleQuiz, isLoading, error} = useGetSingleQuizQuery(quizId)
+    const {data: singleQuiz} = useGetSingleQuizQuery(quizId)
     console.log(singleQuiz);
 
     const [addNewLevel] = useAddNewLevelToQuizMutation()
@@ -42,16 +39,14 @@ const AdminQuizEditPage = () => {
     e.preventDefault()
     let o = []
     o.push(optionA,optionB,optionC,optionD)
-    let q = {questionNumber,options: o,question,correctAnswer,score}
-    console.log(q);
     setQuestions((prev) => ([...prev, {questionNumber,options: o,question,correctAnswer,score}]))
       setExercises((prev) => {
-        console.log(prev);
+        // console.log(prev);
         if(prev?.length === 0)
         {
             return [{exerciseNumber,exercisePassScore,questions:[{questionNumber,options: o,question,correctAnswer,score}]}]
         }
-        else if(prev && prev[prev.length-1]?.exerciseNumber == exerciseNumber)
+        else if(prev && prev[prev.length-1]?.exerciseNumber === exerciseNumber)
         {
             if(prev.length > 1)
             {
@@ -93,7 +88,7 @@ const addQuestionToggler = () => {setShowQuestion(true)}
             //this means we are adding the exercise to an existing level
             if(levelNumber <= singleQuiz?.level.length)
             {
-                console.log(levelNumber);
+                // console.log(levelNumber);
                 let newExercise = exercises[exercises.length - 1]
                   await addNewExercise({quizId,newExercise,levelNumber})
                   toast.success("New Exercise Added!")
@@ -105,7 +100,7 @@ const addQuestionToggler = () => {setShowQuestion(true)}
             newLevel.levelNumber = levelNumber
             newLevel.exercises = exercises
 
-            console.log(newLevel);
+            // console.log(newLevel);
             await addNewLevel({quizId,newLevel})
             toast.success("New Level Added!")
             }
@@ -116,11 +111,11 @@ const addQuestionToggler = () => {setShowQuestion(true)}
 
   return <>
   <div className='d-flex w-full justify-content-between align-items-center mb-4'>
-  <h1 className='mb-0'>Add a Level</h1>
-  <div >
-  <Button variant='primary' onClick={addLevelToggler}>Add</Button>
-  <Button variant='primary' style={{marginLeft: "0.5rem"}} onClick={levelSubmitHandler}>Update</Button>
-  </div>
+    <h1 className='mb-0'>Add a Level</h1>
+    <div >
+        <Button variant='primary' onClick={addLevelToggler}>Add</Button>
+        <Button variant='primary' style={{marginLeft: "0.5rem"}} onClick={levelSubmitHandler}>Update</Button>
+    </div>
   </div>
   
 

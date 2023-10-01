@@ -1,15 +1,12 @@
 import React from 'react'
-import {LinkContainer} from 'react-router-bootstrap'
-import { FaEdit, FaTrash, FaCheck, FaTimes} from 'react-icons/fa'
-import {Table, Button, Row ,Col} from 'react-bootstrap'
+import { FaTrash, FaCheck, FaTimes} from 'react-icons/fa'
+import {Table, Button} from 'react-bootstrap'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-import { useNavigate } from 'react-router-dom'
 import { useDeleteUserMutation, useGetUsersQuery } from '../slices/usersApiSlice'
 import {toast} from 'react-toastify'
 
 const AdminUserListPage = () => {
-  const navigate = useNavigate()
 
   const {data: users, isLoading, refetch, error} = useGetUsersQuery()
   console.log(users);
