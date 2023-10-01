@@ -157,12 +157,24 @@ const getUserById = asyncHandler(async(req,res) => {
     res.send("get user by Id")
 })
 
-// @desc delete users
-// @route DELETE /api/users/:id 
-// @access private/admin
+//@desc delete users
+//@route DELETE /api/users/:id
+//@access private/Admin
 const deleteUser = asyncHandler(async(req,res) => {
-    res.send("delete user")
-})
+    const user = await User.findById(req.params.id)
+    if(user){
+        if(user.isAdmin)
+        {
+            res.status(400)
+            throw new Error("Cannot Delete Admin User!")
+        }
+        await User.deleteOne({_id: user._id})
+        res.status(200).json({message: "User deleted successfully!"})
+    }else{
+        res.status(404)
+        throw new Error("User not found!")  
+    }
+ });
 
 // @desc update user
 // @route PUT /api/users/:id 
