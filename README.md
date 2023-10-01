@@ -9,6 +9,17 @@ Welcome, aspiring programmers, to Quizzify, an exciting programming language lea
 
 Quizzify has three quizzes: React, JavaScript, and Python. Each quiz has multiple exercises that you must pass before moving on to the next one. This game is tailored for all levels of expertise.
 
+## Images
+
+### Homepage
+![Home Page](https://github.com/RedJOe-0608/Quizzify/assets/95337058/ab6509d6-9700-4210-a644-fe4e494a6204)
+
+### Start Quiz Page
+![Start quiz page](https://github.com/RedJOe-0608/Quizzify/assets/95337058/ae62c63e-2426-433a-9e74-3b5b797f647a)
+
+### Actual Quiz (Can you answer it? 😉)
+![Quiz](https://github.com/RedJOe-0608/Quizzify/assets/95337058/54e283f7-3477-47c3-a8f4-b9dbfeeb583e)
+
 ### Features
 
 - Multiple Languages: Solve questions of popular programming languages and libraries such as Python, JavaScript, and React.
