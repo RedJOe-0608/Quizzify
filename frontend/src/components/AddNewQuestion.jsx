@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form } from 'react-bootstrap'
 
-const AddNewQuestion = ({setQuestionNumber, setQuestion, setOptionA, setOptionB, setOptionC, setOptionD, setCorrectAnswer, setCorrectScore}) => {
+const AddNewQuestion = ({setQuestionNumber, setQuestion, setOptionA, setOptionB, setOptionC, setOptionD, setCorrectAnswer, setScore}) => {
   return (
     <>
      
@@ -74,7 +74,7 @@ const AddNewQuestion = ({setQuestionNumber, setQuestion, setOptionA, setOptionB,
             type='number'
             placeholder='Set score for this question: '
             // value={question}
-            onChange={(e) => setCorrectScore(e.target.value)}
+            onChange={(e) => setScore(e.target.value)}
             ></Form.Control>
         </Form.Group>
     </>

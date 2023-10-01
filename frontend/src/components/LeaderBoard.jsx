@@ -11,7 +11,8 @@ const LeaderBoard = () => {
     let filteredData = []
     users?.forEach((user) => {
         let score = 0
-        score+=user?.javascript?.overallScore+user?.react?.overallScore+user?.python?.overallScore
+        score= (user?.javascript?.overallScore+user?.react?.overallScore+user?.python?.overallScore)
+        console.log(score);
         filteredData.push({name: user.name, id: user?._id, score: score})
     })
 

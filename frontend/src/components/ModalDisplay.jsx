@@ -9,7 +9,7 @@ import { updateUserJavascriptExercise, updateUserReactExercise, updateUserPython
 import { useProfileMutation } from '../slices/usersApiSlice';
 import Loader from '../components/Loader'
 
-const ModalDisplay = ({show, setShow, lNo, eNo, id, levelsLength, exercisesLength, exerciseScore, setExerciseScore, exercisePassScore}) => {
+const ModalDisplay = ({show, setShow, lNo, eNo, id, levelsLength, exercisesLength, exerciseScore, setExerciseScore, exercisePassScore, disabled, setDisabled}) => {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -41,6 +41,8 @@ const ModalDisplay = ({show, setShow, lNo, eNo, id, levelsLength, exercisesLengt
     console.log("level number is",levelNo);
 
   const handleTryAgain =() => {
+    setDisabled(false)
+    console.log("disable set to false!");
 
     try {
       setExerciseScore(0)

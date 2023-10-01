@@ -23,6 +23,7 @@ import AdminRoute from './components/AdminRoute';
 import AdminQuizListPage from './pages/AdminQuizListPage';
 import AdminQuizEditPage from './pages/AdminQuizEditPage';
 import LeaderBoard from './components/LeaderBoard';
+import AdminUserListPage from './pages/AdminUserListPage';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -39,6 +40,7 @@ const router = createBrowserRouter(
       <Route path='' element={<AdminRoute />}>
         <Route path='/admin/quizlist' element={<AdminQuizListPage />}></Route>
         <Route path='/admin/quizzes/:id/edit' element={<AdminQuizEditPage />}></Route>
+        <Route path='/admin/userlist' element={<AdminUserListPage />}></Route>
       </Route>
     </Route>
   )

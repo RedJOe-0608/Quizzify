@@ -9,18 +9,18 @@ import {resumeQuizPython, resetQuizPython,addExercisePython,addLevelPython} from
 import {resumeQuizJs, resetQuizJs, addExerciseJs, addLevelJs} from '../slices/javascriptSlice'
 import {resumeQuizReact, resetQuizReact, addExerciseReact, addLevelReact} from '../slices/reactSlice'
 import { useEffect } from 'react'
+import { useProfileMutation } from '../slices/usersApiSlice'
 const QuizFinishPage = () => {
 
     const {id: quizId} = useParams()
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    
     const {data: singleQuiz, isLoading, error} = useGetSingleQuizQuery(quizId)
     console.log(singleQuiz);
     const quizName = singleQuiz?.name
 
-    
+    const [updateProfile, {isLoading: loadingUpdateProfile}] = useProfileMutation()
     const {userInfo} = useSelector((state) => state.auth)
 
     let state = useSelector((state) => {
@@ -33,6 +33,26 @@ const QuizFinishPage = () => {
           return state.python     
         }
       })
+
+      //The logic behind this useEffect is that when each exercise page loads, we will then update the user details in the database. So, when we click on next in the modal, the neccessary calculations will done (i.e. a new level/exercise will be added, and then when we navigate to the next exercise page, all the made changes will be reflected in the database)
+      useEffect(() => {
+        const updateUserDB = async() => {
+          if(quizName?.includes("React")){
+          await updateProfile({_id: userInfo._id,react: state})
+        }
+        else if(quizName?.includes("JavaScript")){
+          await updateProfile({_id: userInfo._id,javascript: state})
+        } else if(quizName?.includes("Python")){
+          await updateProfile({_id: userInfo,python: state})
+        }
+  
+        }
+  
+        updateUserDB()
+      },[state,quizName,updateProfile, userInfo._id])
+
+    
+  
 
     const resetQuiz = () => {
         if(quizName?.includes("React")){

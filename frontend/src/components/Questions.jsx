@@ -1,14 +1,21 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {ListGroup, Button} from 'react-bootstrap'
 import {toast} from 'react-toastify'
 
 
-const Questions = ({questions, exerciseScore, setExerciseScore}) => {
-const [disabled, setDisabled] = useState(false)
+const Questions = ({questions, exerciseScore, setExerciseScore, disableButton}) => {
+
+  const [disabled, setDisabled] = useState(false)
+
+  useEffect(() => {
+    if(disableButton === false)
+      setDisabled(false)
+  },[disableButton, setDisabled, disabled])
   
 const handleClick = (option,e) => {
-  e?.currentTarget.classList.toggle("active")
+  // e?.currentTarget.classList.toggle("active") we are handling it now with react-toastify
   setDisabled(true)
+  
   if(Object.keys(option)[0] === questions.correctAnswer)
   {
     setExerciseScore((prevExerciseScore) => prevExerciseScore + questions.score)

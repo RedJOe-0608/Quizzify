@@ -10,6 +10,7 @@ import { useProfileMutation } from '../slices/usersApiSlice';
 const Exercise = ({exercise, exercisesLength, levelsLength}) => {
   const navigate = useNavigate()
     const {levelNo, exerciseNo, id:quizId} = useParams()
+    const [disabled, setDisabled] = useState(false)
 
     const {data: singleQuiz, isLoading, error} = useGetSingleQuizQuery(quizId)
     console.log(singleQuiz);
@@ -85,10 +86,12 @@ const Exercise = ({exercise, exercisesLength, levelsLength}) => {
       setExerciseScore={setExerciseScore}
       exerciseNo={exercise.exerciseNumber}
       exercisePassScore={exercise.exercisePassScore}
+      disabled={disabled}
+      setDisabled={setDisabled}
     />}
     <form onSubmit={handleSubmit}>
     {exercise?.questions?.map((questions) => {
-      return  <Questions key={questions._id} questions={questions} exerciseScore={exerciseScore} setExerciseScore={setExerciseScore} />   
+      return  <Questions key={questions._id} questions={questions} exerciseScore={exerciseScore} setExerciseScore={setExerciseScore} disableButton={disabled} />   
     })}
      <Button 
      type='submit'

@@ -24,7 +24,8 @@ const QuizPage = () => {
   let levelFilteredExcercises = []
   let singleExercise = []
    //All exercsises of the particular level
-    levelFilteredExcercises =  !isLoading && (levels?.length >1 ? exercises[lNo - 1] : exercises[0])
+    // levelFilteredExcercises =  !isLoading && (levels?.length >1 ? exercises[lNo - 1] : exercises[0])
+    levelFilteredExcercises =  !isLoading && ( exercises[0])
     console.log(levelFilteredExcercises);
     //exercises length is the total number of exercises in that particular level 
     let exercisesLength = levelFilteredExcercises?.length

@@ -32,7 +32,7 @@ const updateQuiz = asyncHandler(async (req,res) => {
     if(quiz)
     {
         quiz.level = [...quiz.level, {...req.body}]
-        quiz.totalLevels = quiz.totalLevels+1
+        quiz.totalLevels = quiz.level.length
         
     }
 

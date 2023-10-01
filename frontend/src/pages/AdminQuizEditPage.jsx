@@ -29,7 +29,7 @@ const AdminQuizEditPage = () => {
     const [optionC, setOptionC] = useState({})
     const [optionD, setOptionD] = useState({})
     const [correctAnswer, setCorrectAnswer] = useState('')
-    const [correctScore, setCorrectScore] = useState('')
+    const [score, setScore] = useState(0)
     const [exerciseNumber, setExerciseNumber] = useState(0)
     const [exercisePassScore, setExercisePassScore] = useState(0)
 
@@ -42,14 +42,14 @@ const AdminQuizEditPage = () => {
     e.preventDefault()
     let o = []
     o.push(optionA,optionB,optionC,optionD)
-    let q = {questionNumber,options: o,question,correctAnswer,correctScore}
+    let q = {questionNumber,options: o,question,correctAnswer,score}
     console.log(q);
-    setQuestions((prev) => ([...prev, {questionNumber,options: o,question,correctAnswer,correctScore}]))
+    setQuestions((prev) => ([...prev, {questionNumber,options: o,question,correctAnswer,score}]))
       setExercises((prev) => {
         console.log(prev);
         if(prev?.length === 0)
         {
-            return [{exerciseNumber,exercisePassScore,questions:[{questionNumber,options: o,question,correctAnswer,correctScore}]}]
+            return [{exerciseNumber,exercisePassScore,questions:[{questionNumber,options: o,question,correctAnswer,score}]}]
         }
         else if(prev && prev[prev.length-1]?.exerciseNumber == exerciseNumber)
         {
@@ -60,12 +60,12 @@ const AdminQuizEditPage = () => {
                 {
                     arr.push(prev[i]);
                 }
-                return [...arr,{...prev[prev.length-1],questions:[...questions, {questionNumber,options: o,question,correctAnswer,correctScore}]}]
+                return [...arr,{...prev[prev.length-1],questions:[...questions, {questionNumber,options: o,question,correctAnswer,score}]}]
             }
-            return [{...prev[prev.length-1],questions:[...questions, {questionNumber,options: o,question,correctAnswer,correctScore}]}]
+            return [{...prev[prev.length-1],questions:[...questions, {questionNumber,options: o,question,correctAnswer,score}]}]
         }
         else{
-             let newArr = [...prev,{ exerciseNumber,exercisePassScore,questions:[{questionNumber,options: o,question,correctAnswer,correctScore}]}]
+             let newArr = [...prev,{ exerciseNumber,exercisePassScore,questions:[{questionNumber,options: o,question,correctAnswer,score}]}]
             let newQuestions =[]
              newQuestions = questions[questions.length-1]
             setQuestions([newQuestions])
@@ -79,7 +79,7 @@ const AdminQuizEditPage = () => {
 useEffect(() => {
     console.log(questions);
     console.log(exercises);
-}, [questions, exercises,questionNumber,question,correctAnswer,correctScore])
+}, [questions, exercises,questionNumber,question,correctAnswer,score])
 
 
 const addLevelToggler = () => {setShowLevel(true)}
@@ -171,7 +171,7 @@ const addQuestionToggler = () => {setShowQuestion(true)}
          
              <AddNewQuestion 
                setCorrectAnswer={setCorrectAnswer}
-               setCorrectScore={setCorrectScore} 
+               setScore={setScore} 
                setOptionA={setOptionA}
                setOptionB={setOptionB}
                setOptionC={setOptionC}
