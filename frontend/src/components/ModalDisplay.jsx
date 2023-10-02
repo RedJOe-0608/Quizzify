@@ -87,7 +87,7 @@ const ModalDisplay = ({show, setShow, lNo, eNo, id, levelsLength, exercisesLengt
 
     let newExercise = []
     newExercise.push({
-        exerciseNo: ((ex.length+1) % exercisesLength) == 0 ? exercisesLength : (ex.length+1) % exercisesLength,
+        exerciseNo: ((ex.length+1) % exercisesLength) === 0 ? exercisesLength : (ex.length+1) % exercisesLength,
         exerciseScore: 0,
         exerciseStatus: "not passed"
       })
@@ -116,7 +116,7 @@ const ModalDisplay = ({show, setShow, lNo, eNo, id, levelsLength, exercisesLengt
         dispatch(addExercisePython({newExercise}))    
       }
       //this is for updating the level
-    }else if(levelsLength > 1 && eNo == exercisesLength){
+    }else if(levelsLength > 1 && eNo === exercisesLength){
       if(quizName?.includes("React")){
         dispatch(addLevelReact(newlevel))
       }
@@ -145,11 +145,11 @@ const ModalDisplay = ({show, setShow, lNo, eNo, id, levelsLength, exercisesLengt
         navigate(`/quiz/${id}/level/${(lNo)}/exercise/${eNo}`)
         // console.log(`/quiz/${id}/level/${Number(levelNo)}/exercise/${(eNo)}`);
       }
-      else if(levelsLength == 1 && eNo == exercisesLength)
+      else if(levelsLength === 1 && eNo === exercisesLength)
       {
         navigate(`/quiz/${id}/quizfinish`)
       }
-      else if(levelsLength > 1 && eNo == exercisesLength)
+      else if(levelsLength > 1 && eNo === exercisesLength)
       {
         lNo++
         eNo = (eNo + 1) %Number(exercisesLength)

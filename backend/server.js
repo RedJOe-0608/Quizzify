@@ -23,10 +23,6 @@ app.use(cookieParser())
 app.use('/api/quizzes',quizRoutes)
 app.use('/api/users',userRoutes)
 
-
-app.use(notFound)
-app.use(errorHandler)
-
 if(process.env.NODE_ENV === 'production'){
     // set static folder
     app.use(express.static(path.join(__dirname,'/frontend/build')))
@@ -40,6 +36,9 @@ if(process.env.NODE_ENV === 'production'){
         res.send("API is running...")
     })
 }
+
+app.use(notFound)
+app.use(errorHandler)
 
 
 app.listen(PORT, () => {

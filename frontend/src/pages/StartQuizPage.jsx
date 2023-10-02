@@ -58,7 +58,7 @@ const StartQuizPage = () => {
        let exerciseNo = ex[ex.length - 1]?.exerciseNo;
 
        const resumeQuiz = () => {
-        if(userInfo && (state.progress == singleQuiz?.totalLevels))
+        if(userInfo && (state.progress === singleQuiz?.totalLevels))
         {
           navigate(`/quiz/${quizId}/quizfinish`)
         }

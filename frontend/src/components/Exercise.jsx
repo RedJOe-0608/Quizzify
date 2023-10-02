@@ -44,7 +44,7 @@ const Exercise = ({exercise, exercisesLength, levelsLength}) => {
       }
 
       updateUserDB()
-    },[state,quizName,updateProfile, userInfo._id])
+    },[state,quizName,updateProfile,userInfo, userInfo._id])
     
     let eNo = Number(exerciseNo)
     let lNo = Number(levelNo)
@@ -92,7 +92,7 @@ const Exercise = ({exercise, exercisesLength, levelsLength}) => {
      <Button 
      type='submit'
      className='btn btn-block'>
-      {exerciseNo == exercisesLength ? 'Submit And Finish Level' : ' Submit Exercise'}
+      {exerciseNo === exercisesLength ? 'Submit And Finish Level' : ' Submit Exercise'}
      </Button>
     </form>
     </>

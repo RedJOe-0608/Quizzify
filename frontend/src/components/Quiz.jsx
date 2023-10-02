@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom'
 
 const Quiz = ({quiz}) => {
 
-  let state = useSelector((state) => {
-    if(quiz?.name.includes("React")){
-      return state.react
-    }
-    else if(quiz?.name.includes("JavaScript")){
-      return state.javascript
-    } else{
-      return state.python     
-    }
-  })
+  // let state = useSelector((state) => {
+  //   if(quiz?.name.includes("React")){
+  //     return state.react
+  //   }
+  //   else if(quiz?.name.includes("JavaScript")){
+  //     return state.javascript
+  //   } else{
+  //     return state.python     
+  //   }
+  // })
 
   const {userInfo} = useSelector((state) => state.auth)
 
