@@ -36,7 +36,7 @@ Ready to Quizzify? Follow these simple steps:
 
 - Clone the Repository: git clone git@github.com:RedJOe-0608/Quizzify.git
 
-- Install Dependencies: cd Quizzify (make sure you are in the root directory) && npm install (this will install all the neccesary dependencies).
+- Install Dependencies: cd Quizzify (make sure you are in the root directory), then npm install in the root directory. After that, cd frontend, and then again npm install (this will install all the neccesary dependencies both in the root folder as well as in the fronted folder).
 
 - Launch the Game: npm run dev (this will start the game on localhost:3000)
 

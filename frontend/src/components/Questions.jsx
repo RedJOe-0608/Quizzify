@@ -10,10 +10,11 @@ const Questions = ({questions, setExerciseScore, disableButton}) => {
   useEffect(() => {
     if(disableButton === false)
       setDisabled(false)
-  },[disableButton, setDisabled, disabled])
+  },[disableButton, setDisabled])
   
 const handleClick = (option,e) => {
   // e?.currentTarget.classList.toggle("active") we are handling it now with react-toastify
+  console.log('clicked!');
   setDisabled(true)
   
   if(Object.keys(option)[0] === questions.correctAnswer)

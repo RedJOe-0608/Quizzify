@@ -400,7 +400,7 @@ const quiz = [
                                    { "c": "Free and open-source JavaScript front-end library",},
                                    { "d": "None of the mentioned",},
                                 ],
-                                correctAnswer: 'a',
+                                correctAnswer: 'c',
                                 score: 5
                             },
                             {

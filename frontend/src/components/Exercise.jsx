@@ -9,7 +9,7 @@ import { useProfileMutation } from '../slices/usersApiSlice';
 
 const Exercise = ({exercise, exercisesLength, levelsLength}) => {
     const {levelNo, exerciseNo, id:quizId} = useParams()
-    const [disabled, setDisabled] = useState(false)
+    const [disabled, setDisabled] = useState(null)
 
     const {data: singleQuiz} = useGetSingleQuizQuery(quizId)
 
