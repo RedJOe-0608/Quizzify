@@ -10,7 +10,6 @@ const AddNewQuestion = ({setQuestionNumber, setQuestion, setOptionA, setOptionB,
             <Form.Control
             type='number'
             placeholder='Enter Question Number: '
-            // value={question}
             onChange={(e) => setQuestionNumber(e.target.value)}
             ></Form.Control>
         </Form.Group>
@@ -19,7 +18,6 @@ const AddNewQuestion = ({setQuestionNumber, setQuestion, setOptionA, setOptionB,
             <Form.Control
             type='text'
             placeholder='Enter Question: '
-            // value={question}
             onChange={(e) => setQuestion(e.target.value)}
             ></Form.Control>
         </Form.Group>
@@ -28,7 +26,6 @@ const AddNewQuestion = ({setQuestionNumber, setQuestion, setOptionA, setOptionB,
             <Form.Control
             type='text'
             placeholder='Option 1: '
-            // value={question}
             onChange={(e) => setOptionA({a: e.target.value})}
             ></Form.Control>
         </Form.Group>
@@ -37,7 +34,6 @@ const AddNewQuestion = ({setQuestionNumber, setQuestion, setOptionA, setOptionB,
             <Form.Control
             type='text'
             placeholder='Option 2: '
-            // value={question}
             onChange={(e) => setOptionB({b: e.target.value})}
             ></Form.Control>
         </Form.Group>
@@ -46,7 +42,6 @@ const AddNewQuestion = ({setQuestionNumber, setQuestion, setOptionA, setOptionB,
             <Form.Control
             type='text'
             placeholder='Option 3: '
-            // value={question}
             onChange={(e) => setOptionC({c: e.target.value})}
             ></Form.Control>
         </Form.Group>
@@ -55,7 +50,7 @@ const AddNewQuestion = ({setQuestionNumber, setQuestion, setOptionA, setOptionB,
             <Form.Control
             type='text'
             placeholder='Option 4: '
-            // value={question}
+            
             onChange={(e) => setOptionD({d: e.target.value})}
             ></Form.Control>
         </Form.Group>
@@ -64,7 +59,6 @@ const AddNewQuestion = ({setQuestionNumber, setQuestion, setOptionA, setOptionB,
             <Form.Control
             type='text'
             placeholder='set correct answer: '
-            // value={question}
             onChange={(e) => setCorrectAnswer(e.target.value)}
             ></Form.Control>
         </Form.Group>
@@ -73,7 +67,6 @@ const AddNewQuestion = ({setQuestionNumber, setQuestion, setOptionA, setOptionB,
             <Form.Control
             type='number'
             placeholder='Set score for this question: '
-            // value={question}
             onChange={(e) => setScore(e.target.value)}
             ></Form.Control>
         </Form.Group>

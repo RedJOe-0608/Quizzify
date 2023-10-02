@@ -1,4 +1,4 @@
-import { createSlice ,current} from "@reduxjs/toolkit";
+import { createSlice} from "@reduxjs/toolkit";
 
 // localStorage.getItem("javascript") ? JSON.parse(localStorage.getItem("javascript")) :
 const initialState =  localStorage.getItem("javascript") ? JSON.parse(localStorage.getItem("javascript")) :
@@ -39,10 +39,7 @@ const javascriptSlice = createSlice({
         },
         resetQuizJs: (state,action) => {
             localStorage.removeItem("javascript")
-            console.log(current(state));
-            console.log(initialState);
             Object.assign(state,initialState)
-            console.log(state);
             let userInfo = action.payload
             userInfo = {...userInfo,javascript: initialState}
             localStorage.setItem("userInfo", JSON.stringify(userInfo))
@@ -55,18 +52,13 @@ const javascriptSlice = createSlice({
         },
         addExerciseJs: (state, action) => {
             const {newExercise} = action.payload;
-            console.log(newExercise[0]);
-            console.log(current(state));
             let levels = state.level
-            console.log(levels);
             let {ex: excercises} = levels[(levels?.length) - 1]
             excercises?.push(newExercise[0])
-            console.log(current(state));
             localStorage.setItem("javascript", JSON.stringify(state))
-            // console.log(excercises && excercises);
         },
         updateExerciseJs: (state, action) =>{
-            const {exerciseScore,exercisePassScore, levelsLength, exercisesLength} = action.payload
+            const {exerciseScore,exercisePassScore, exercisesLength} = action.payload
             
             let levels = state.level
 
@@ -75,9 +67,6 @@ const javascriptSlice = createSlice({
             levelScore+=exerciseScore
             let passScore = 0   
             passScore = exercisePassScore*exercisesLength
-            // console.log("Pass score: ",passScore);
-            // console.log("level score",levelScore);
-            // console.log("Have you passed?", levelScore >=passScore);
             let levelStatusValue = ''
             let isCompletedValue = false
 
@@ -101,10 +90,7 @@ const javascriptSlice = createSlice({
             isCompleted: isCompletedValue
             }
 
-            // {console.log(newLevel)}
-            // levels[levels.length - 1] = newLevel
-           
-           
+        
          
             let currentExercise = excercises[excercises?.length-1]
             let updateExercise = 

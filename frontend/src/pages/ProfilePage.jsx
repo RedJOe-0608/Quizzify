@@ -1,13 +1,10 @@
 import {useState, useEffect} from 'react'
 import {Row, Col, Form,Table, Button} from 'react-bootstrap'
-import { LinkContainer } from 'react-router-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import {toast} from 'react-toastify'
-import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { useProfileMutation } from '../slices/usersApiSlice'
 import { setCredentials } from '../slices/authSlice'
-import {FaTimes} from 'react-icons/fa'
 import { useGetQuizzesQuery } from '../slices/quizzesApiSlice'
 
 const ProfilePage = () => {
@@ -19,8 +16,8 @@ const ProfilePage = () => {
     const dispatch = useDispatch()
     const {userInfo} = useSelector((state) => state.auth)
 
-    const {data: quizzes, isLoading, error} = useGetQuizzesQuery()
-    // console.log(quizzes);
+    const {data: quizzes} = useGetQuizzesQuery()
+    
     const [updateProfile, {isLoading: loadingUpdateProfile}] = useProfileMutation()
 
 

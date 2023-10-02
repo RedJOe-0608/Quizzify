@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
 
 const Quiz = ({quiz}) => {
-  console.log(quiz);
 
   let state = useSelector((state) => {
     if(quiz?.name.includes("React")){

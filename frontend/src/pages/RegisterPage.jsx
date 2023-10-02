@@ -1,7 +1,7 @@
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import {Link, useLocation, useNavigate} from 'react-router-dom'
 import {Form, Button, Row,Col} from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import Loader from '../components/Loader'
 import {useRegisterMutation} from '../slices/usersApiSlice'
 import FormContainer from '../components/FormContainer'
@@ -14,7 +14,6 @@ const RegisterPage = () => {
     const [password,setPassword] = useState('')
     const [confirmPassword,setConfirmPassword] = useState('')
     const [register,{isLoading}] = useRegisterMutation()
-    const {userInfo} = useSelector((state) => state.auth)
 
     const submitHandler = async (e) => {
         e.preventDefault()
@@ -37,15 +36,6 @@ const RegisterPage = () => {
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
-
-    // const {search} = useLocation()
-    // const sp = new URLSearchParams(search)
-    // const redirect = sp.get('redirect') || '/'
-
-    // useEffect(() => {
-    //     if(userInfo)
-    //         navigate(redirect)
-    // },[redirect,navigate,userInfo])
 
 
   return (

@@ -1,24 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import Questions from './Questions'
 import { Button } from 'react-bootstrap';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import ModalDisplay from './ModalDisplay';
 import { useGetSingleQuizQuery } from '../slices/quizzesApiSlice';
 import { useSelector } from 'react-redux';
 import { useProfileMutation } from '../slices/usersApiSlice';
 
 const Exercise = ({exercise, exercisesLength, levelsLength}) => {
-  const navigate = useNavigate()
     const {levelNo, exerciseNo, id:quizId} = useParams()
     const [disabled, setDisabled] = useState(false)
 
-    const {data: singleQuiz, isLoading, error} = useGetSingleQuizQuery(quizId)
-    console.log(singleQuiz);
+    const {data: singleQuiz} = useGetSingleQuizQuery(quizId)
 
     const quizName = singleQuiz?.name
     const {userInfo} = useSelector((state) => state.auth)
 
-    const [updateProfile, {isLoading: loadingUpdateProfile}] = useProfileMutation()
+    const [updateProfile] = useProfileMutation()
 
     let state = useSelector((state) => {
       if(quizName?.includes("React")){
@@ -48,8 +46,6 @@ const Exercise = ({exercise, exercisesLength, levelsLength}) => {
       updateUserDB()
     },[state,quizName,updateProfile, userInfo._id])
     
-    
-    // console.log(levelsLength, exercisesLength);
     let eNo = Number(exerciseNo)
     let lNo = Number(levelNo)
 

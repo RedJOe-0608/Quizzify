@@ -3,7 +3,7 @@ import {ListGroup, Button} from 'react-bootstrap'
 import {toast} from 'react-toastify'
 
 
-const Questions = ({questions, exerciseScore, setExerciseScore, disableButton}) => {
+const Questions = ({questions, setExerciseScore, disableButton}) => {
 
   const [disabled, setDisabled] = useState(false)
 

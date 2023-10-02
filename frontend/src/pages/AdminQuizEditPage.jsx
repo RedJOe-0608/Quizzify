@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import {useParams} from 'react-router-dom'
 import {Form, Button} from 'react-bootstrap'
 import {toast} from 'react-toastify'
@@ -9,7 +9,6 @@ const AdminQuizEditPage = () => {
 
     const {id: quizId} = useParams()
     const {data: singleQuiz} = useGetSingleQuizQuery(quizId)
-    console.log(singleQuiz);
 
     const [addNewLevel] = useAddNewLevelToQuizMutation()
 
@@ -41,7 +40,6 @@ const AdminQuizEditPage = () => {
     o.push(optionA,optionB,optionC,optionD)
     setQuestions((prev) => ([...prev, {questionNumber,options: o,question,correctAnswer,score}]))
       setExercises((prev) => {
-        // console.log(prev);
         if(prev?.length === 0)
         {
             return [{exerciseNumber,exercisePassScore,questions:[{questionNumber,options: o,question,correctAnswer,score}]}]
@@ -71,10 +69,10 @@ const AdminQuizEditPage = () => {
     setShowQuestion(false)
 }
 
-useEffect(() => {
-    console.log(questions);
-    console.log(exercises);
-}, [questions, exercises,questionNumber,question,correctAnswer,score])
+// useEffect(() => {
+//     console.log(questions);
+//     console.log(exercises);
+// }, [questions, exercises,questionNumber,question,correctAnswer,score])
 
 
 const addLevelToggler = () => {setShowLevel(true)}
@@ -88,7 +86,6 @@ const addQuestionToggler = () => {setShowQuestion(true)}
             //this means we are adding the exercise to an existing level
             if(levelNumber <= singleQuiz?.level.length)
             {
-                // console.log(levelNumber);
                 let newExercise = exercises[exercises.length - 1]
                   await addNewExercise({quizId,newExercise,levelNumber})
                   toast.success("New Exercise Added!")
@@ -100,7 +97,6 @@ const addQuestionToggler = () => {setShowQuestion(true)}
             newLevel.levelNumber = levelNumber
             newLevel.exercises = exercises
 
-            // console.log(newLevel);
             await addNewLevel({quizId,newLevel})
             toast.success("New Level Added!")
             }
@@ -129,7 +125,6 @@ const addQuestionToggler = () => {setShowQuestion(true)}
             <Form.Control
             type='number'
             placeholder='Enter Level Number'
-            // value={levelNumber}
             onChange={(e) => setLevelNumber(e.target.value)}
             ></Form.Control>
         </Form.Group>
@@ -149,7 +144,6 @@ const addQuestionToggler = () => {setShowQuestion(true)}
             <Form.Control
             type='number'
             placeholder='Enter Exercise Number'
-            // value={exerciseNumber}
             onChange={(e) => setExerciseNumber(e.target.value)}
             ></Form.Control>
         </Form.Group>
@@ -181,7 +175,6 @@ const addQuestionToggler = () => {setShowQuestion(true)}
             <Form.Control
             type='number'
             placeholder='Set pass score for this exercise: '
-            // value={question}
             onChange={(e) => setExercisePassScore(e.target.value)}
             ></Form.Control>
         </Form.Group>

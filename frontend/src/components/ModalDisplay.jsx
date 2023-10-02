@@ -1,10 +1,10 @@
 import {Modal, Button} from 'react-bootstrap'
 import { useGetSingleQuizQuery } from '../slices/quizzesApiSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
-import {resumeQuizPython, resetQuizPython,addExercisePython,addLevelPython, updateExercisePython} from '../slices/pythonSlice'
-import {resumeQuizJs, resetQuizJs, addExerciseJs, addLevelJs, updateExerciseJs} from '../slices/javascriptSlice'
-import {resumeQuizReact, resetQuizReact, addExerciseReact, addLevelReact, updateExerciseReact} from '../slices/reactSlice'
+import { useNavigate } from 'react-router-dom';
+import { resetQuizPython,addExercisePython,addLevelPython, updateExercisePython} from '../slices/pythonSlice'
+import { resetQuizJs, addExerciseJs, addLevelJs, updateExerciseJs} from '../slices/javascriptSlice'
+import {resetQuizReact, addExerciseReact, addLevelReact, updateExerciseReact} from '../slices/reactSlice'
 import { updateUserJavascriptExercise, updateUserReactExercise, updateUserPythonExercise } from '../slices/authSlice';
 import { useProfileMutation } from '../slices/usersApiSlice';
 import Loader from '../components/Loader'
@@ -14,12 +14,12 @@ const ModalDisplay = ({show, setShow, lNo, eNo, id, levelsLength, exercisesLengt
   const dispatch = useDispatch()
   const navigate = useNavigate()
     // const { id:quizId, levelNo,exerciseNo} = useParams()
-  const {data: singleQuiz, isLoading, error} = useGetSingleQuizQuery(id)
+  const {data: singleQuiz} = useGetSingleQuizQuery(id)
     console.log(singleQuiz);
     
     const {userInfo} = useSelector((state) => state.auth)
 
-    const [updateProfile, {isLoading: loadingUpdateProfile}] = useProfileMutation()
+    const [ {isLoading: loadingUpdateProfile}] = useProfileMutation()
 
     const quizName = singleQuiz?.name
 
@@ -36,13 +36,10 @@ const ModalDisplay = ({show, setShow, lNo, eNo, id, levelsLength, exercisesLengt
 
     console.log(state);
     const {level} = state
-    let {levelScore,levelStatus,levelNo, ex} = level[level.length -1];
-    let {exerciseStatus,exerciseScore: exScore} = ex[ex.length - 1];
-    console.log("level number is",levelNo);
+    let {levelScore,levelNo, ex} = level[level.length -1];  
 
   const handleTryAgain =() => {
     setDisabled(false)
-    console.log("disable set to false!");
 
     try {
       setExerciseScore(0)

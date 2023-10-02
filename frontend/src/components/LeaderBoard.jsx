@@ -5,17 +5,14 @@ import { useGetUsersQuery } from '../slices/usersApiSlice'
 const LeaderBoard = () => {
 
     const {data: users} = useGetUsersQuery()
-    console.log(users);
 
     let filteredData = []
     users?.forEach((user) => {
         let score = 0
         score= (user?.javascript?.overallScore+user?.react?.overallScore+user?.python?.overallScore)
-        console.log(score);
         filteredData.push({name: user.name, id: user?._id, score: score})
     })
 
-    // console.log(filteredData);
 
     //sorted scores
     for(let i = 0;i<filteredData.length-1;i++)
@@ -30,8 +27,6 @@ const LeaderBoard = () => {
       }
   }
 }
-
-console.log(filteredData);
   
   return (
     <>

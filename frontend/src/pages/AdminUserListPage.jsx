@@ -9,13 +9,11 @@ import {toast} from 'react-toastify'
 const AdminUserListPage = () => {
 
   const {data: users, isLoading, refetch, error} = useGetUsersQuery()
-  console.log(users);
 
   const [deleteUser,{isLoading: loadingDelete}] = useDeleteUserMutation()
 
 
   const deletehandler = async(id) => {
-    // console.log('delete');
     if(window.confirm('Are you sure you want to delete?')){
         try {
             await deleteUser(id)
@@ -43,18 +41,13 @@ const AdminUserListPage = () => {
               </tr>
           </thead>
           <tbody>
-            {users?.map((user, index) => (
+            {users?.map((user) => (
               <tr key={user._id}>
                 <td>{user?._id}</td>
                 <td>{user?.name}</td>
                 <td>{user?.email}</td>
                 <td>{user?.isAdmin ? <FaCheck style={{color: "green"}} /> : <FaTimes style={{color: "red"}}/>}</td>
                 <td>
-                {/* <LinkContainer to={`/admin/quizzes/${quiz?._id}/edit`}>
-                              <Button variant='light' className='btn-sm mx-2'>
-                                  <FaEdit />
-                              </Button>
-                          </LinkContainer> */}
                               <Button variant='danger' className='btn-sm'
                               onClick={() => deletehandler(user._id)}>
                                   <FaTrash style={{color: 'white'}} />

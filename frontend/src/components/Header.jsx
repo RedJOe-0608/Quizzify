@@ -6,25 +6,18 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useLogoutMutation } from '../slices/usersApiSlice'
 import { logout } from '../slices/authSlice'
 import { useNavigate } from 'react-router-dom'
-import { resetQuizJs } from '../slices/javascriptSlice'
-import { resetQuizReact } from '../slices/reactSlice'
-import { resetQuizPython } from '../slices/pythonSlice'
-import LeaderBoard from './LeaderBoard'
 
 const Header = () => {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const [logoutApiCall, {isLoading}] = useLogoutMutation()
+    const [logoutApiCall] = useLogoutMutation()
 
     const logoutHandler = async () => {
         try {
             await logoutApiCall().unwrap()
                 dispatch(logout())
-                // dispatch(resetQuizJs(),resetQuizPython(),resetQuizReact())
-                // dispatch(resetQuizPython())
-                // dispatch(resetQuizReact())
                 navigate('/login')
         } catch (error) {
             console.log(error);

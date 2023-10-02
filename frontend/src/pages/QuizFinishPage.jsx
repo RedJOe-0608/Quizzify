@@ -15,7 +15,6 @@ const QuizFinishPage = () => {
     const dispatch = useDispatch()
 
     const {data: singleQuiz} = useGetSingleQuizQuery(quizId)
-    console.log(singleQuiz);
     const quizName = singleQuiz?.name
 
     const [updateProfile] = useProfileMutation()
@@ -73,14 +72,10 @@ const QuizFinishPage = () => {
         </Col>
         <Col md={7}>
           <ListGroup variant='flush'>
-          {/* <ListGroup.Item>
-            <h2>{value}</h2>
-          </ListGroup.Item> */}
             <ListGroup.Item>
               <h3>{singleQuiz?.name}</h3>
             </ListGroup.Item>
             {userInfo &&  <ListGroup.Item> 
-            {/* <p>Levels Completed: {state.progress} / {singleQuiz?.totalLevels}</p>   */}
             <p>Congratulations On Completing The Quiz!</p>
             </ListGroup.Item>}
            

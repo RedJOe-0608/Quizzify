@@ -1,20 +1,16 @@
 import {useParams, Link, useNavigate} from 'react-router-dom'
-import {Row, Col, Image, ListGroup,Card, Button} from 'react-bootstrap'
+import {Row, Col, Image, ListGroup,Button} from 'react-bootstrap'
 import { useGetSingleQuizQuery } from '../slices/quizzesApiSlice'
 import { useSelector, useDispatch } from 'react-redux'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
-import {resumeQuizPython, resetQuizPython,addExercisePython,addLevelPython} from '../slices/pythonSlice'
-import {resumeQuizJs, resetQuizJs, addExerciseJs, addLevelJs} from '../slices/javascriptSlice'
-import {resumeQuizReact, resetQuizReact, addExerciseReact, addLevelReact} from '../slices/reactSlice'
-import { useEffect } from 'react'
+import {resumeQuizPython, resetQuizPython} from '../slices/pythonSlice'
+import {resumeQuizJs, resetQuizJs} from '../slices/javascriptSlice'
+import {resumeQuizReact, resetQuizReact} from '../slices/reactSlice'
 
 
 
 // Level 2 will only be added to the redux state when level 1 is completed and so on
-
-
-
 const StartQuizPage = () => {
 
     const {id: quizId} = useParams()
@@ -22,7 +18,6 @@ const StartQuizPage = () => {
     const dispatch = useDispatch()
 
     const {data: singleQuiz, isLoading, error} = useGetSingleQuizQuery(quizId)
-    console.log(singleQuiz);
     
 
     const quizName = singleQuiz?.name
