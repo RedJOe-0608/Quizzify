@@ -4,7 +4,7 @@ import cookieParser from 'cookie-parser';
 dotenv.config()
 import connectDB from './config/db.js';
 import { notFound, errorHandler } from './middleware/errorHandler.js';
-
+import path from 'path'
 import quizRoutes from './routes/quizRoutes.js'
 import userRoutes from './routes/userRoutes.js'
 const PORT = process.env.PORT || 5000
