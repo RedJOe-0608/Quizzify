@@ -5,6 +5,7 @@ dotenv.config()
 import connectDB from './config/db.js';
 import { notFound, errorHandler } from './middleware/errorHandler.js';
 import path from 'path'
+import url from 'url'
 import quizRoutes from './routes/quizRoutes.js'
 import userRoutes from './routes/userRoutes.js'
 const PORT = process.env.PORT || 5000
@@ -12,6 +13,9 @@ const PORT = process.env.PORT || 5000
 connectDB() //connecting to the database
 
 const app = express()
+
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // body parser middleware
 app.use(express.json())
